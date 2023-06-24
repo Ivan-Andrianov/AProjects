@@ -1,0 +1,151 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+.main{
+    width: 1920px;
+    height: 3030px;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+}
+
+.firstContainer{
+    width: 1920px;
+    height: 1004px;
+    background-color: #A6CEA0;
+}
+
+.secondContainer{
+    width: 1920px;
+    height: 2322px;
+    background-color: #DEFAD4;
+}
+
+.name{
+    font-size: 170px;
+    color: white;
+    font-family: Courgette;
+    display: flex;
+    justify-content: center;
+}
+
+.prescription{
+    font-size: 120px;
+    color: white;
+    position: absolute;
+    font-family: Courgette;
+    left: 388px;
+    top: 500px;
+
+}
+
+.tree{
+    position: absolute;
+    display: block;
+    width: 493px;
+    height: 693px;
+    top:310px;
+    left:15px;
+}
+
+.containerEye{
+    background-color: white;
+    width: 580px;
+    height: 580px;
+    position: absolute;
+    top: -103px;
+    left: 1179px;
+    text-align: center;
+    border: 5px solid black;
+    border-radius: 40px;
+}
+
+.text1{
+    font-size: 110px;
+    color: #4E7752;
+    position: relative;
+    width: 786px;
+    height: 348px;
+    left: 289px;
+}
+
+.secondContainer,.thirdArticle,.firstArticle,.secondArticle{
+    position: absolute;
+}
+
+.text2{
+    font-size: 110px;
+    color: #4E7752;
+    position: absolute;
+    top: 613px;
+    left: 868px;
+}
+
+.containerSecurity{
+    background-color: white;
+    width: 580px;
+    height: 580px;
+    position: absolute;
+    top: 613px;
+    left: 102px;
+    border: 5px solid black;
+    border-radius: 40px;
+}
+.security{
+    position: relative;
+    top: 23px;
+    left: 23px;
+    width: 315px;
+    height: 325px;
+}
+.flexibility{
+    position: absolute;
+    top: 273px;
+    left:271px;
+    width: 302px;
+    height: 300px;
+}
+
+.containerHands{
+    background-color: white;
+    width: 580px;
+    height: 580px;
+    position: absolute;
+    top: 1333px;
+    left: 1166px;
+    border: 5px solid black;
+    border-radius: 40px;
+}
+.hands{
+    left: 13px;
+    top: 45px;
+    width: 554px;
+    height: 442px;
+    position: relative;
+}
+
+.text3{
+    font-size: 110px;
+    color: #4E7752;
+    position: absolute;
+    top: 1424px;
+    left: 230px;
+}
+
+.LoginButton{
+    position: absolute;
+    text-align: center;
+    font-family: Courgette;
+    top: 2133px;
+    left: 701px;
+    height: 130px;
+    width: 520px;
+    background-color: #A6CEA0;
+    font-size: 100px;
+    color: white;
+}
+
+
+

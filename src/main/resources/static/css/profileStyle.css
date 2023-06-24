@@ -1,0 +1,396 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+body{
+    position: relative;
+}
+
+header,footer{
+    height: 75px;
+    width: 100%;
+    background-color: #79A855;
+}
+
+header{
+    position: relative;
+    top:0px;
+}
+
+#main{
+    width: 100%;
+    position: relative;
+}
+#containerOfContent{
+    width: 945px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    padding-top:61px;
+}
+
+#content{
+    width: 813px;
+    height: 691px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+
+
+#friends,#projects,#bookmarks,#userInformation{
+    background-color: white;
+    position: absolute;
+    border:2px black solid;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px ;
+}
+#userInformation{
+    width: 475px;
+    height: 286px;
+    left:0px;
+    top:0px;
+}
+img{
+    width: 146px;
+    height: 200px;
+    display: block;
+    position: absolute;
+    background-color: green;
+    margin-top: 43px;
+    margin-left: 32px;
+}
+
+
+#friends{
+    top:0px;
+    right: 0px;
+    width: 260px;
+    height: 285px;
+    text-align: center;
+}
+
+#projects{
+    bottom: 0px;
+    background-color: white;
+    height: 353px;
+    width: 475px;
+    text-align: center;
+}
+
+#bookmarks{
+    width: 260px;
+    height: 353px;
+    background-color: white;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+}
+
+.title{
+    font-size: 25px;
+    display: inline-block;
+    margin-top:26px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+
+.fieldForSearching{
+    width: 360px;
+    height: 46px;
+    background-color: white;
+    position: relative;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 20px;
+    border-radius: 15px;
+    padding:0px 10px;
+
+}
+
+.searching{
+    height: 75px;
+    max-width: 630px;
+    position: relative;
+    display: flex;
+}
+
+#searchButton{
+    width: 33px;
+    height: 33px;
+    margin-left: 10px;
+    margin-top:auto;
+    margin-bottom:auto;
+}
+
+.headerContent{
+    margin-left: auto;
+    margin-right: auto;
+    height: 75px;
+    width: 813px;
+    position: relative;
+    display: flex;
+}
+
+#decoration{
+    height: 200px;
+    width:2px;
+    background-color: black;
+    margin-top: 43px;
+    margin-left: 195px;
+}
+
+#controlPanel{
+    width: 110px;
+    height: 40px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 280px;
+
+}
+.buttonOfControlPanel{
+    height: 40px;
+    width: 40px;
+}
+#menuButton{
+    margin-left: 20px;
+}
+
+@media screen and (max-width: 1024px){
+    #userInformation{
+        width: 684px;
+        height: 318px;
+        position: relative;
+    }
+    #content{
+        width: 688px;
+    }
+    #friends{
+        width: 260px;
+        height: 353px;
+        left: 0px;
+        top: auto;
+        bottom: 0px;
+        margin-right: auto;
+        position: absolute;
+    }
+    #projects{
+        width: 411px;
+        height: 353px;
+        position: absolute;
+        right: 0px;
+        left: auto;
+    }
+    #bookmarks{
+        display: none;
+    }
+    #containerOfContent{
+        width: 780px;
+        padding-top:65px;
+    }
+    header{
+        height: 52px;
+    }
+    .fieldForSearching{
+        height: 36px;
+        width: 283px;
+    }
+    .searching{
+        height: 52px;
+    }
+    #controlPanel{
+        height: 35px;
+        width: 85px;
+        margin-left: auto;
+        margin-right: 0px;
+    }
+    .buttonOfControlPanel{
+        width: 35px;
+        height: 35px;
+    }
+
+    .headerContent{
+        width:688px;
+        height: 52px;
+    }
+    #menuButton{
+        margin-left: 11px;
+    }
+
+    img{
+        margin-top: 59px;
+    }
+    #decoration{
+        margin-top: 59px;
+    }
+}
+
+@media screen and (max-width: 768px){
+
+    #containerOfContent{
+        width: 600px;
+        padding-top: 40px;
+    }
+    #userInformation{
+        margin-top: 0px;
+    }
+
+    #userInformation{
+        width: 576px;
+        height: 290px;
+    }
+    #projects{
+        width: 300px;
+        height: 353px;
+        right: 0px;
+        left: auto;
+    }
+    #content{
+        width: 580px;
+        height: 662px;
+    }
+    .headerContent{
+        width: 580px;
+    }
+    #controlPanel{
+        margin-left: 140px;
+        width: 200px;
+    }
+    img,#decoration{
+        margin-top:45px;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .fieldForSearching{
+        width: 243px;
+        height: 32px;
+    }
+    .headerContent{
+        width: 480px;
+    }
+    #containerOfContent{
+        width: 480px
+    }
+    #controlPanel{
+        margin-left: 85px;
+    }
+    #searchButton{
+        size:20px;
+    }
+    .buttonOfControlPanel{
+        size:30px;
+    }
+
+    #userInformation{
+        height: 318px;
+        width: 476px;
+    }
+    img,#decoration{
+        margin-top:59px;
+    }
+
+    #friends{
+        height: 353px;
+        width: 200px;
+    }
+    #projects{
+        width: 257px;
+        height: 353px;
+    }
+    #content{
+        width: 480px;
+        height: 720px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    .fieldForSearching{
+        width: 188px;
+        height: 25px;
+    }
+
+    #searchButton{
+        width: 16px;
+        height: 16px;
+    }
+
+    header{
+        height: 36px;
+    }
+    .headerContent{
+        width: 343px;
+        height: 36px;
+    }
+
+    .searching{
+        height: 36px;
+    }
+
+    .buttonOfControlPanel{
+        width: 20px;
+        height: 20px;
+    }
+    #friends{
+        display: none;
+    }
+    #userInformation{
+        width: 100%;
+        height: 219px;
+    }
+
+    #containerOfContent{
+        width: 360px;
+    }
+    #content{
+        width: 343px;
+        height: 600px;
+    }
+    #projects{
+        width: 100%;
+        height: 353px;
+        left: 0px;
+    }
+
+    img{
+        width: 125px;
+        margin-left: 17px;
+    }
+
+    img,#decoration{
+        height: 171px;
+        margin-top: 24px;
+    }
+    #decoration{
+        margin-left: 150px;
+    }
+
+    #controlPanel{
+        margin-left: 50px;
+        height: 20px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    #userInformation{
+        width: 344px;
+        height: 220px;
+    }
+
+    #projects{
+        width: 344px;
+        height: 353px;
+    }
+
+    #content{
+        width: 344px;
+    }
+    #containerOfContent{
+        width: 360px;
+    }
+
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link  rel="stylesheet" type="text/css" href="/css/registrationStyle.css">
+</head>
+<body>
+  <div class="registration">
+        <p class="registration_text">Registration</p>
+        <form method="post" action="/registration">
+            <p class="field_text">Name*</p>
+            <input class="field" type="text" name="name">
+            <p class="field_text">Lastname*</p>
+            <input class="field" type="text" name="lastname">
+            <p class="field_text">Login*</p>
+            <input class="field" type="text" name="email">
+            <p class="field_text">Password*</p>
+            <input class="field" type="password" name="password">
+            <p class="field_text">Repeat password*</p>
+            <input class="field" type="password">
+            <input id="submit" type="submit" value="Register">
+        </form>
+
+      <a id="goToLoginPage" href="/login">Do you already have an account?</a>
+  </div>
+</body>
+</html>
