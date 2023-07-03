@@ -392,5 +392,8 @@ img{
     #containerOfContent{
         width: 360px;
     }
+    #controlPanel{
+        margin-left: 45px;
+    }
 
 }

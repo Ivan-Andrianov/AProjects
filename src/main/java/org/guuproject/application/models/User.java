@@ -2,13 +2,12 @@ package org.guuproject.application.models;
 
 import jakarta.persistence.*;
 import org.guuproject.application.models.enums.Role;
+import org.guuproject.application.models.enums.Status;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDateTime;
-import java.util.Collection;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "users")
@@ -18,15 +17,18 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
+
     @Column(name="email")
-    private String email;//necessary
+    private String email;
+
     @Column(name="phone_number")
     private String phoneNumber;
+
     @Column(name="name")
     private String name;//necessary
 
     @Column(name="lastname")
-    private String lastName;//necessary
+    private String lastname;//necessary
 
     @Column(name="active")
     private boolean active;
@@ -38,20 +40,32 @@ public class User implements UserDetails {
     @Column(name = "roles")
     @CollectionTable(name = "roles",joinColumns = @JoinColumn(name = "user_id"))
     @Enumerated(EnumType.STRING)
-    private Set<Role> roles;
+    private Set<Role> roles = new HashSet<>(Set.of(Role.ROLE_USER));
 
-    @Column(name="dateOfCreating")
+    @Column(name="dateOfCreated")
     private LocalDateTime dateOfCreated;//necessary
 
 
-    public void setFriendsId(List<User> friendsId) {
-        this.friendsId = friendsId;
-    }
 
-    @ManyToMany
-    @JoinColumn(name = "user_id")
-    private List<User> friendsId;//массив айди друзей.
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name="friendship",joinColumns = @JoinColumn(referencedColumnName = "id",name="user_id"),
+            inverseJoinColumns = @JoinColumn(referencedColumnName = "id",name="friend_id"))
+    @Column(name = "friends")
+    private List<User> friends = new ArrayList<>();//массив айди друзей.
 
+
+    @Column(name="git")
+    private String gitHub;
+
+    @Column(name="avatar")
+    private String address_of_avatar;
+
+    @Column(name="country")
+    private String country;
+
+    @Column(name="status")
+    @Enumerated(EnumType.STRING)
+    private Status status;
 
 
     @Override
@@ -126,12 +140,12 @@ public class User implements UserDetails {
         this.name = name;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     public boolean isActive() {
@@ -163,8 +177,42 @@ public class User implements UserDetails {
     }
 
 
+    public void setFriendsId(List<User> friends) {
+        this.friends = friends;
+    }
+    public List<User> getFriends() {
+        return friends;
+    }
 
-    public List<User> getFriendsId() {
-        return friendsId;
+    public String getGitHub() {
+        return gitHub;
+    }
+
+    public void setGitHub(String gitHub) {
+        this.gitHub = gitHub;
+    }
+
+    public String getAddress_of_avatar() {
+        return address_of_avatar;
+    }
+
+    public void setAddress_of_avatar(String address_of_avatar) {
+        this.address_of_avatar = address_of_avatar;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 }

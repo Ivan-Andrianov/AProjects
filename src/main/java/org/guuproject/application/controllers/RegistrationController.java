@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+
 @Controller
 public class RegistrationController {
 
@@ -20,7 +21,7 @@ public class RegistrationController {
     }
 
     @GetMapping("/registration")
-    public String getRegistration(){
+    public String getRegistrationPage(){
         return "registration";
     }
 
@@ -31,6 +32,7 @@ public class RegistrationController {
             return "registration";
         }
         service.createUser(user);
+
         return "redirect:/login";
     }
 }

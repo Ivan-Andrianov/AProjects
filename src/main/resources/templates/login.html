@@ -4,21 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <link type="text/css" rel="stylesheet" href="/css/loginStyle.css">
-    <script type="text/javascript" src="/js/loginJs.js"></script>
 </head>
 
 <body>
-<div class="authentication">
-    <p class="name">Authentication</p>
-    <form id="formL" method="post" action="/login" onload="func()">
-        <p class="fieldName">Login</p>
-        <input class="field" type="text" name="username">
-        <p class="fieldName">Password</p>
-        <input class="field" type="password" name="password">
-        <input id="submit" type="submit" value="Log In">
-        <a id="registration" href="/registration">Not registered yet?</a>
-    </form>
+    <div id="authenticationContainer">
+        <p id="title">Authentication</p>
+        <form method="post" action="/login">
+            <p>Login</p>
+            <input id="login" type="text" name="username">
+            <p>Password</p>
+            <input type="password" name="password">
+            <div id="panel">
+                <input id="button" type="submit" value="Log In" onclick="{document.getElementById('button').style.backgroundColor='green'}">
+                <a href="/registration" id="linkToRegistration">Not registered yet?</a>
+            </div>
+        </form>
 
-</div>
+    </div>
 </body>
 </html>

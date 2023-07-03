@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=display-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <title>Profile</title>
-    <link rel="stylesheet" href="../static/css/profileStyle.css">
+    <link rel="stylesheet" href="/css/profileStyle.css">
 </head>
 <body>
     <header>
         <div class="headerContent">
             <div class="searching">
                 <input class="fieldForSearching">
-                <input type="image" id="searchButton" src="../static/pictures/search.png"/>
+                <input type="image" id="searchButton" src="/pictures/search.png"/>
             </div>
             <div id="controlPanel">
-                <input id="profileButton" type="image" src="../static/pictures/profile.png" class="buttonOfControlPanel"/>
-                <input id="menuButton" type="image" src="../static/pictures/menu.png" class="buttonOfControlPanel"/>
+                <input id="profileButton" type="image" src="/pictures/profile.png" class="buttonOfControlPanel"/>
+                <input id="menuButton" type="image" src="/pictures/menu.png" class="buttonOfControlPanel"/>
             </div>
         </div>
     </header>
@@ -23,13 +23,18 @@
         <div id="containerOfContent">
             <div id="content">
                 <article id="userInformation">
-                    <img src="../static/pictures/avatars/myAvatar.jpg">
+                    <img src="/pictures/avatars/myAvatar.jpg">
                     <script>//здесь будет код возвращающий Аватарку пользователя</script>
                     <div id="decoration"></div>
                 </article>
                 <div id="friends">
                     <p class="title">Friends online</p>
-
+                    <script>
+                        let request = new XMLHttpRequest();
+                        request.open("GET","http://localhost:8081/getUserFriends/9");
+                        request.send()
+                        console.log("<p>"+request.responseText+"</p>")
+                    </script>
                 </div>
 
                 <div id="projects">
@@ -41,8 +46,6 @@
 
                 </div>
             </div>
-
-
 
         </div>
     </div>
