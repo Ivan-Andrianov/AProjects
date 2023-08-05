@@ -3,13 +3,8 @@ package org.guuproject.application.configuration;
 import jakarta.servlet.DispatcherType;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.core.GrantedAuthorityDefaults;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
@@ -28,14 +23,21 @@ public class WebSecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        return http.csrf(x->x.disable()).authorizeHttpRequests(authorize->authorize.requestMatchers("/profile").
-                authenticated().anyRequest().
-                permitAll()).formLogin(form->form.loginPage("/login")).build();
+        return http.csrf(x->x.disable()).authorizeHttpRequests(authorize->authorize.requestMatchers("/profile/**","/profile").
+                authenticated().
+                anyRequest().permitAll()).formLogin(form->form.loginPage("/login")).build();
     }
 
     @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder(8);
     }
+
+
+    /*@Bean
+    CorsConfigurationSource corsConfigurationSource(){
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(Arrays.asList(""))
+    }*/
 
 }

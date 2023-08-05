@@ -1,399 +1,704 @@
-*{
-    margin:0;
-    padding:0;
-}
 
-body{
-    position: relative;
-}
-
-header,footer{
-    height: 75px;
+body ,html{
     width: 100%;
-    background-color: #79A855;
+    height: 100%;
+    min-width: 811px;
 }
 
 header{
-    position: relative;
-    top:0px;
-}
-
-#main{
+    background-color: #79A855;
+    height: 75px;
     width: 100%;
-    position: relative;
+    display: inline-flex;
 }
-#containerOfContent{
-    width: 945px;
+
+#headerContent{
+    width: 811px;
+    height: 100%;
+    position: relative;
     margin-left: auto;
     margin-right: auto;
-    position: relative;
-    padding-top:61px;
 }
 
-#content{
-    width: 813px;
-    height: 691px;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-}
-
-
-
-#friends,#projects,#bookmarks,#userInformation{
-    background-color: white;
-    position: absolute;
-    border:2px black solid;
-    border-radius: 10px;
-    box-shadow: 2px 2px 4px ;
-}
-#userInformation{
-    width: 475px;
-    height: 286px;
-    left:0px;
-    top:0px;
-}
-img{
-    width: 146px;
-    height: 200px;
-    display: block;
-    position: absolute;
-    background-color: green;
-    margin-top: 43px;
-    margin-left: 32px;
-}
-
-
-#friends{
-    top:0px;
-    right: 0px;
-    width: 260px;
-    height: 285px;
-    text-align: center;
-}
-
-#projects{
-    bottom: 0px;
-    background-color: white;
-    height: 353px;
-    width: 475px;
-    text-align: center;
-}
-
-#bookmarks{
-    width: 260px;
-    height: 353px;
-    background-color: white;
-    position: absolute;
-    right: 0px;
-    bottom: 0px;
-}
-
-.title{
-    font-size: 25px;
+#searchingContainer{
     display: inline-block;
-    margin-top:26px;
-    font-weight: bold;
-    font-style: italic;
+    height: 45px;
+    margin-top:15px;
 }
 
-
-.fieldForSearching{
-    width: 360px;
-    height: 46px;
-    background-color: white;
-    position: relative;
-    margin-top: auto;
-    margin-bottom: auto;
-    font-size: 20px;
-    border-radius: 15px;
-    padding:0px 10px;
-
+#searchingField{
+    display: inline-block;
+    width: 380px;
+    height: 100%;
+    border: black 2px solid;
+    border-radius: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 15px;
 }
 
-.searching{
-    height: 75px;
-    max-width: 630px;
-    position: relative;
-    display: flex;
+#searchingButton{
+    display: block;
+    width: 29px;
+    height: 29px;
+    float: right;
+    margin-top: 8px;
+    margin-left: 15px;
 }
 
-#searchButton{
-    width: 33px;
-    height: 33px;
-    margin-left: 10px;
-    margin-top:auto;
-    margin-bottom:auto;
-}
-
-.headerContent{
-    margin-left: auto;
-    margin-right: auto;
-    height: 75px;
-    width: 813px;
-    position: relative;
-    display: flex;
-}
-
-#decoration{
-    height: 200px;
-    width:2px;
-    background-color: black;
-    margin-top: 43px;
-    margin-left: 195px;
-}
-
-#controlPanel{
-    width: 110px;
+#navigationPanel{
+    float: right;
+    margin-top: 17px;
     height: 40px;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 280px;
-
 }
-.buttonOfControlPanel{
+
+#navigationPanel *{
     height: 40px;
     width: 40px;
 }
-#menuButton{
-    margin-left: 20px;
+
+#profileButton{
+    margin-right: 15px;
 }
 
+#bodyContent{
+    width: 811px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#content{
+    position: relative;
+    margin-top:64px;
+    height: 691px;
+    width: 100%;
+}
+
+#userInformationContainer,#projectsContainer,#friendsContainer,#teamsContainer{
+    border:black 2px solid;
+    border-radius: 10px;
+    display: none;
+}
+
+#userInformationContainer{
+    width: 475px;
+    height: 286px;
+    display: block;
+    position: relative;
+}
+
+#friendsContainer{
+    width: 260px;
+    height: 285px;
+    display: block;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    text-align: center;
+}
+
+#projectsContainer{
+    width: 475px;
+    height: 353px;
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    text-align: center;
+}
+
+
+#teamsContainer{
+    width: 260px;
+    height: 353px;
+    bottom: 0px;
+    right: 0px;
+    position: absolute;
+    display: block;
+}
+
+#avatar{
+    width: 142px;
+    height: 200px;
+    border: #E7D2B3 4px solid;
+    position: absolute;
+    margin-top: 43px;
+    margin-left:33px;
+    display: inline-block;
+}
+#decoration{
+    background-color: black;
+    height: 200px;
+    width: 1px;
+    position: absolute;
+    margin-top: 43px;
+    margin-left: 200px;
+    display: inline-block;
+}
+
+#userInformation{
+    display: block;
+    position: absolute;
+    margin-top: 43px;
+    margin-left: 212px;
+    font-size: 12px;
+    height: 200px;
+    width: 224px;
+    font-family:"Times New Roman";
+    font-style: normal;
+}
+
+#userInformation p+p{
+    margin-top: 13px;
+}
+
+#username{
+    font-size: 20px;
+}
+
+#userInformation input{
+    width: 102px;
+    height: 24px;
+    bottom: 0px;
+    position: absolute;
+    background-color: #8FAFB4;
+    border-radius: 5px;
+    border: black 1px solid;
+    font-size: 13px;
+}
+
+#editButton{
+    position: absolute;
+    bottom: 0px;
+    display: none;
+}
+
+#addFriendButton{
+    position: absolute;
+    display: inline-block;
+}
+
+#writeMessageButton{
+    position: absolute;
+    display: inline-block;
+    right: 0px;
+    margin-left: 10px;
+}
+
+.title{
+    display: inline-block;
+    margin-top: 13px;
+    font-size: 25px;
+    font-family: "Times New Roman";
+    margin-bottom: 12px;
+}
+
+.friend{
+    display: inline-block;
+    width: 219px;
+    height: 44px;
+    border-radius: 5px;
+    border: black 1px solid;
+    text-align: center;
+    line-height: 44px;
+    position: relative;
+}
+
+.friendsAvatar{
+    border-radius: 50%;
+    border: black 1px solid;
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    display: inline-block;
+    left: 0px;
+    margin-left: 16px;
+    margin-top: 3px;
+    position: absolute;
+}
+
+.friend p{
+    position: absolute;
+    margin-left: 62px;
+    font-size: 13px;
+}
+
+.friend + .friend{
+    margin-top:8px;
+}
+
+.project{
+    width: 440px;
+    height: 83px;
+    border: black 1px solid;
+    display: block;
+    margin-left:auto;
+    margin-right: auto;
+    border-radius: 10px;
+    text-align: left;
+    padding-left: 11px;
+    position: relative;
+}
+
+
+
+.projectName{
+    font-size: 25px;
+    margin-top: 14px;
+}
+.lastModification, .userMembership{
+    font-size: 10px;
+    display: inline-block;
+    position: absolute;
+    bottom: 9px;
+}
+
+.userMembership{
+    right: 11px;
+}
+
+.project+.project{
+    margin-top:12px;
+}
+
+#teamsContainer{
+    text-align: center;
+}
+
+.team{
+    width: 219px;
+    height: 51px;
+    border: black 1px solid;
+    display: inline-block;
+    border-radius:5px;
+    text-align: left;
+    position: relative;
+    padding:8px 60px 6px 9px;
+}
+
+.teamName{
+    font-size: 15px;
+    position: absolute;
+}
+
+.teamMembership{
+    font-size: 10px;
+    display: inline-block;
+    position: absolute;
+    bottom: 6px;
+}
+
+
 @media screen and (max-width: 1024px){
-    #userInformation{
-        width: 684px;
-        height: 318px;
-        position: relative;
-    }
-    #content{
-        width: 688px;
-    }
-    #friends{
-        width: 260px;
-        height: 353px;
-        left: 0px;
-        top: auto;
-        bottom: 0px;
-        margin-right: auto;
-        position: absolute;
-    }
-    #projects{
-        width: 411px;
-        height: 353px;
-        position: absolute;
-        right: 0px;
-        left: auto;
-    }
-    #bookmarks{
-        display: none;
-    }
-    #containerOfContent{
-        width: 780px;
-        padding-top:65px;
-    }
     header{
-        height: 52px;
+        height: 50px;
     }
-    .fieldForSearching{
+    #headerContent{
+        width: 736px;
+    }
+
+    #searchingContainer{
         height: 36px;
+    }
+    #searchingField{
         width: 283px;
     }
-    .searching{
-        height: 52px;
+
+    #searchingButton{
+        height: 23px;
+        width: 23px;
     }
-    #controlPanel{
+
+    #bodyContent{
+        width: 738px;
+    }
+
+    #content{
+        height: 652px;
+    }
+
+    #navigationPanel{
         height: 35px;
-        width: 85px;
-        margin-left: auto;
-        margin-right: 0px;
     }
-    .buttonOfControlPanel{
+    #navigationPanel,#searchingContainer{
+        margin-top: 7px;
+    }
+
+    #menuButton,#profileButton{
         width: 35px;
         height: 35px;
     }
 
-    .headerContent{
-        width:688px;
-        height: 52px;
-    }
-    #menuButton{
-        margin-left: 11px;
+    #userInformation{
+        width: 481px;
+        font-size: 18px;
     }
 
-    img{
-        margin-top: 59px;
+    #country,#github,#status{
+        font-size: 13px;
     }
-    #decoration{
-        margin-top: 59px;
+
+    #friendsContainer{
+        width: 242px;
+        height: 286px;
+    }
+    #userInformation{
+        width: 230px;
+    }
+
+    .title{
+        font-size: 23px;
+    }
+
+    #teamsContainer{
+        width: 240px;
+        height: 353px;
     }
 }
 
 @media screen and (max-width: 768px){
-
-    #containerOfContent{
-        width: 600px;
-        padding-top: 40px;
-    }
-    #userInformation{
-        margin-top: 0px;
+    #bodyContent{
+        width: 592px;
     }
 
-    #userInformation{
-        width: 576px;
-        height: 290px;
+    #headerContent{
+        width: 592px;
     }
-    #projects{
-        width: 300px;
+
+    #userInformationContainer{
+        width: 365px;
+        height: 242px;
+    }
+
+    #avatar{
+        width: 123px;
+        height: 168px;
+        margin-left:25px;
+        margin-top: 37px;
+    }
+
+    #decoration{
+        height: 168px;
+        margin-top:37px;
+        margin-left: 170px;
+    }
+
+    #userInformation{
+        margin-left: 183px;
+        font-size: 12px;
+        height: 162px;
+        width: 160px;
+    }
+    #username{
+        font-size: 17px;
+    }
+
+    #userInformation input{
+        height: 17px;
+        width: 77px;
+        font-size: 10px;
+    }
+
+    #friendsContainer{
+        width: 219px;
+        height: 242px;
+    }
+    .friend{
+        height: 38px;
+        width: 170px;
+        line-height: 38px;
+    }
+
+    .friendsAvatar{
+        margin-top:2px;
+        margin-left: 10px;
+        width: 32px;
+        height: 32px;
+    }
+
+    .friend p{
+        font-size: 10px;
+        margin-left: 50px;
+    }
+
+    #teamsContainer{
+        width: 219px;
         height: 353px;
-        right: 0px;
-        left: auto;
     }
-    #content{
-        width: 580px;
-        height: 662px;
+
+    .team{
+        width: 170px;
+        height: 51px;
     }
-    .headerContent{
-        width: 580px;
+    .teamName{
+        font-size: 15px;
     }
-    #controlPanel{
-        margin-left: 140px;
-        width: 200px;
+
+    .teamMembership{
+        font-size: 10px;
     }
-    img,#decoration{
-        margin-top:45px;
+
+    #projectsContainer{
+        width: 365px;
+        height: 353px;
+    }
+
+    .project{
+        height: 83px;
+        width: 281px;
+    }
+
+    .lastModification{
+        display: none;
+    }
+    .userMembership{
+        left: 0px;
+        margin-left:9px;
     }
 }
 
 @media screen and (max-width: 600px){
-    .fieldForSearching{
+    header{
+        height: 45px;
+    }
+
+    #profileButton,#menuButton{
+        height: 27px;
+        width: 27px;
+    }
+
+    #navigationPanel{
+        margin-top:9px;
+    }
+
+    #searchingField{
         width: 243px;
         height: 32px;
     }
-    .headerContent{
+
+    #searchingButton{
+        height: 20px;
+        width: 20px;
+        margin-left: 5px;
+    }
+
+    #bodyContent{
         width: 480px;
     }
-    #containerOfContent{
-        width: 480px
-    }
-    #controlPanel{
-        margin-left: 85px;
-    }
-    #searchButton{
-        size:20px;
-    }
-    .buttonOfControlPanel{
-        size:30px;
-    }
 
-    #userInformation{
-        height: 318px;
-        width: 476px;
-    }
-    img,#decoration{
-        margin-top:59px;
-    }
-
-    #friends{
-        height: 353px;
-        width: 200px;
-    }
-    #projects{
-        width: 257px;
-        height: 353px;
-    }
     #content{
+        height: 958px;
+        margin-top: 40px;
+    }
+
+    #headerContent{
         width: 480px;
-        height: 720px;
+    }
+
+    #userInformationContainer{
+        width: 100%;
+        display: block;
+        height: 236px;
+        margin-bottom: 7px;
+    }
+
+    #userInformation, #decoration,#avatar{
+        margin-top:34px;
+        height: 168px;
+    }
+
+    #decoration{
+        margin-top:34px;
+    }
+
+    #friendsContainer{
+        display: inline-block;
+        position: relative;
+        width: 230px;
+        height: 353px;
+    }
+
+    .friendsAvatar{
+        height: 30px;
+        width: 30px;
+    }
+
+    #teamsContainer{
+        display: inline-block;
+        position: relative;
+        float: right;
+    }
+
+    #projectsContainer{
+        position: absolute;
+        display: block;
+        width: 100%;
+    }
+
+    .project{
+        width: 413px;
+        height: 83px;
+    }
+    .lastModification{
+        left: 0px;
+        margin-left: 9px;
+        display: inline-block;
+    }
+    .userMembership{
+        left: auto;
+        right: 10px;
+        display: inline-block;
     }
 }
 
-@media screen and (max-width: 480px) {
-
-    .fieldForSearching{
-        width: 188px;
-        height: 25px;
+@media screen and (max-width: 480px){
+    #bodyContent,#headerContent{
+        width: 337px;
     }
 
-    #searchButton{
-        width: 16px;
-        height: 16px;
+    #content{
+        height: 1500px;
     }
 
     header{
         height: 36px;
     }
-    .headerContent{
-        width: 343px;
-        height: 36px;
+
+    #searchingField{
+        width: 188px;
+        height: 100%;
     }
 
-    .searching{
-        height: 36px;
+    #searchingContainer{
+        height: 25px;
+        margin-top:5px;
     }
 
-    .buttonOfControlPanel{
-        width: 20px;
+    #searchingButton{
+        height: 16px;
+        width: 16px;
+        margin-top: 6px;
+    }
+
+    #profileButton,#menuButton{
         height: 20px;
+        width: 20px;
     }
-    #friends{
-        display: none;
+
+    #profileButton{
+        margin-right: 10px;
     }
-    #userInformation{
-        width: 100%;
+
+    #navigationPanel{
+        height: 20px;
+        margin-top:8px;
+    }
+
+    #userInformationContainer{
         height: 219px;
     }
 
-    #containerOfContent{
-        width: 360px;
-    }
-    #content{
-        width: 343px;
-        height: 600px;
-    }
-    #projects{
-        width: 100%;
-        height: 353px;
-        left: 0px;
+    #avatar{
+        height: 168px;
+        width: 123px;
+        margin-left: 15px;
     }
 
-    img{
-        width: 125px;
-        margin-left: 17px;
-    }
-
-    img,#decoration{
-        height: 171px;
-        margin-top: 24px;
+    #avatar,#decoration,#userInformation{
+        height: 168px;
+        margin-top:26px;
     }
     #decoration{
-        margin-left: 150px;
+        margin-left: 149px;
     }
-
-    #controlPanel{
-        margin-left: 50px;
-        height: 20px;
-    }
-}
-
-@media screen and (max-width: 360px) {
     #userInformation{
-        width: 344px;
-        height: 220px;
+        margin-left: 159px;
     }
 
-    #projects{
-        width: 344px;
+    #userInformation *{
+        font-size: 10px;
+    }
+
+    #userInformation input{
+        width: 67px;
+    }
+
+    #username{
+        font-size: 16px;
+    }
+
+    #projectsContainer{
+        display: block;
+        position: relative;
+        width: 100%;
         height: 353px;
     }
 
-    #content{
-        width: 344px;
+    .project{
+        width: 281px;
+        height: 83px;
     }
-    #containerOfContent{
-        width: 360px;
+
+
+    #friendsContainer{
+        display: block;
+        position: relative;
+        width: 100%;
+        height: 231px;
     }
-    #controlPanel{
-        margin-left: 45px;
+
+    .friend{
+        height: 41px;
+        width: 281px;
+    }
+
+    #teamsContainer{
+        display: block;
+        position: relative;
+        width: 100%;
+        height: 353px;
+    }
+
+    .team{
+        width: 281px;
+        height: 51px;
+    }
+
+    .title{
+        font-size: 25px;
+    }
+
+    #userInformationContainer,#friendsContainer,#projectsContainer,#teamsContainer{
+        margin-top: 15px;
+    }
+}
+
+@media  screen and (max-width: 360px){
+
+    #headerContent,#bodyContent{
+        width: 306px;
+    }
+
+    .friend{
+        height: 41px;
+        width: 281px;
+    }
+
+    #userInformation{
+        width: 135px;
+    }
+    #username{
+        font-size: 14px;
+    }
+
+    #userInformation input{
+        width: 62px;
+        height: 17px;
+        font-size: 8px;
     }
 
 }
+
+
+
+

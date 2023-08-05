@@ -2,52 +2,81 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=display-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="viewport" content="width=device-width">
     <title>Profile</title>
     <link rel="stylesheet" href="/css/profileStyle.css">
+    <link rel="stylesheet" href="/css/commonStyle.css">
+    <script src="/js/profilePageLoader.js"></script>
 </head>
-<body>
-    <header>
-        <div class="headerContent">
-            <div class="searching">
-                <input class="fieldForSearching">
-                <input type="image" id="searchButton" src="/pictures/search.png"/>
-            </div>
-            <div id="controlPanel">
-                <input id="profileButton" type="image" src="/pictures/profile.png" class="buttonOfControlPanel"/>
-                <input id="menuButton" type="image" src="/pictures/menu.png" class="buttonOfControlPanel"/>
+<body onload="requestForUserData()">
+<header>
+    <div id="headerContent">
+        <div id="searchingContainer">
+            <input id="searchingField">
+            <input id="searchingButton" type="image" src="/pictures/search.png">
+        </div>
+        <div id="navigationPanel">
+            <input id="profileButton" type="image" src="/pictures/profile.png">
+            <input id="menuButton" type="image" src="/pictures/menu.png">
+        </div>
+    </div>
+</header>
+
+<div id="bodyContent">
+    <div id="content">
+        <div id="userInformationContainer">
+            <img id="avatar">
+            <div id="decoration"></div>
+            <div id="userInformation">
+                <p id="username"></p>
+                <p id="country">Страна: </p>
+                <p id="status">Статус: </p>
+                <input id="editButton" type="button" value="Edit">
+                <input id="addFriendButton" type="button" value="Add friend">
+                <input id="writeMessageButton" type="button" value="Write message">
             </div>
         </div>
-    </header>
-    <div id="main">
-        <div id="containerOfContent">
-            <div id="content">
-                <article id="userInformation">
-                    <img src="/pictures/avatars/myAvatar.jpg">
-                    <script>//здесь будет код возвращающий Аватарку пользователя</script>
-                    <div id="decoration"></div>
-                </article>
-                <div id="friends">
-                    <p class="title">Friends online</p>
-                    <script>
-                        let request = new XMLHttpRequest();
-                        request.open("GET","http://localhost:8081/getUserFriends/9");
-                        request.send()
-                        console.log("<p>"+request.responseText+"</p>")
-                    </script>
-                </div>
 
-                <div id="projects">
-                    <p class="title">Projects</p>
 
-                </div>
+        <div id="friendsContainer">
+            <p class="title">Friends</p>
 
-                <div id="bookmarks">
-
-                </div>
-            </div>
+        </div>
+        <div id="projectsContainer">
+            <p class="title">Projects</p>
+            <a class="project">
+                <p class="projectName">ProjectName</p>
+                <p class="userMembership">Status of membership: admin</p>
+                <p class="lastModification">Last modification: 10.02.2023</p>
+            </a>
+            <a class="project">
+                <p class="projectName">ProjectName</p>
+                <p class="userMembership">Status of membership: admin</p>
+                <p class="lastModification">Last modification: 10.02.2023</p>
+            </a>
+            <a class="project">
+                <p class="projectName">ProjectName</p>
+                <p class="userMembership">Status of membership: admin</p>
+                <p class="lastModification">Last modification: 10.02.2023</p>
+            </a>
+        </div>
+        <div id="teamsContainer">
+            <p class="title">Teams</p>
+            <a class="team">
+                <p class="teamName">TeamName</p>
+                <p class="teamMembership">Status of membership: admin</p>
+            </a>
+            <a class="team">
+                <p class="teamName">TeamName</p>
+                <p class="teamMembership">Status of membership: admin</p>
+            </a>
+            <a class="team">
+                <p class="teamName">TeamName</p>
+                <p class="teamMembership">Status of membership: admin</p>
+            </a>
 
         </div>
     </div>
+</div>
 </body>
 </html>

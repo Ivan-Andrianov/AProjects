@@ -2,20 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <
-    <style>
-        body{
-            height: 1000px;
-            background-color: orange;
-        }
-    </style>
+    <meta name="viewport" content="width=display-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>Profile</title>
+    <link rel="stylesheet" href="/css/profileStyle.css">
+    <script src="/js/profilePageLoader.js"></script>
 </head>
-<body>
-    <script>
+<body onload="requestForUserData()">
+<header>
+    <div class="headerContent">
+        <div class="searching">
+            <input class="fieldForSearching">
+            <input type="image" id="searchButton" src="/pictures/search.png"/>
+        </div>
+        <div id="controlPanel">
+            <input id="profileButton" type="image" src="/pictures/profile.png" class="buttonOfControlPanel"/>
+            <input id="menuButton" type="image" src="/pictures/menu.png" class="buttonOfControlPanel"/>
+        </div>
+    </div>
+</header>
+<div id="main">
+    <div id="containerOfContent">
+        <div id="content">
+            <article id="userInformation">
+                <!--<img id="avatar" src="/pictures/avatars/avatar9.jpg">
+                <script>//здесь будет код возвращающий Аватарку пользователя</script>-->
+                <div id="decoration"></div>
+            </article>
+            <div id="friends">
+                <a class="title" href="/friends/9">Friends online</a>
 
+            </div>
 
-    </script>
+            <div id="projects">
+                <p class="title">Projects</p>
 
+            </div>
+
+            <div id="bookmarks">
+
+            </div>
+        </div>
+
+    </div>
+</div>
 </body>
 </html>

@@ -7,11 +7,12 @@ import org.guuproject.application.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@Controller
 public class UserController {
 
     UserRepository userRepository;
@@ -41,9 +42,19 @@ public class UserController {
     }
 
     @ResponseBody
-    @GetMapping("/getUserFriends/{id}")
-    public List<User> getUserFriends(@PathVariable(name = "id") Long id){
-        return userRepository.findUserById(id).getFriends();
+    @GetMapping("/getFriends/{id}")
+    public List<User> getFriendsOfUser(@PathVariable Long id){
+        return userRepository.findUserById(id).getParentFriends();
+    }
+    @RequestMapping("/friends/{id}")
+    public String getFriendsPage(@PathVariable(name="id") Long id){
+        return "friendsList";
+    }
+
+    @ResponseBody
+    @GetMapping("/getUser/{id}")
+    public User getUser(@PathVariable(name="id") Long id){
+        return userRepository.findUserById(id);
     }
 
 

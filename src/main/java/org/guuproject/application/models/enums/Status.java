@@ -1,7 +1,7 @@
 package org.guuproject.application.models.enums;
 
 public enum Status {
-    STUDENT,
+    Student,
     WORKER,
     NONE;
 

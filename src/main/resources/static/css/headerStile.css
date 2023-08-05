@@ -1,0 +1,181 @@
+header{
+    height: 75px;
+    width: 100%;
+    background-color: #79A855;
+}
+
+#headerContent{
+    height: 75px;
+}
+
+#searchingField{
+    width: 380px;
+    height: 45px;
+    border: black 2px solid;
+    border-radius:  20px;
+    margin-top: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+    display: inline-block;
+    font-size: 15px;
+}
+
+
+#searchingButton{
+    height: 25px;
+    width: 25px;
+    display: block;
+    float: right;
+    margin-top: 25px;
+    margin-left:10px;
+}
+
+#headerContent{
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#searchingContainer{
+    display: inline-block;
+    height: 100%;
+}
+
+#navigationPanel{
+    height: 35px;
+    float: right;
+    margin-top: 20px;
+}
+
+#menuButton, #profileButton{
+    height: 35px;
+    width: 35px;
+    display: inline-block;
+}
+
+#profileButton{
+    margin-right: 20px;
+}
+
+.messageImg{
+    height: 20px;
+    width: 20px;
+    float: right;
+    margin-top: 58px;
+    margin-right:16px;
+}
+
+@media screen and (max-width: 1024px) {
+    #headerContent{
+        width: 556px;
+    }
+    #searchingField{
+        width: 338px;
+        height: 39px;
+        margin-top:18px;
+    }
+}
+
+@media screen and (max-width: 768px){
+    #headerContent, header{
+        height: 52px;
+    }
+
+    #headerContent{
+        width: 502px;
+    }
+    #searchingField{
+        width: 283px;
+        height: 32px;
+        margin-top: 10px;
+    }
+    #searchingButton{
+        width: 20px;
+        height: 20px;
+        margin-top: 16px;
+    }
+
+    #profileButton,#menuButton{
+        width: 30px;
+        height: 30px;
+    }
+    #navigationPanel{
+        height: 30px;
+        margin-top: 11px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    header{
+        height: 45px;
+    }
+
+    #headerContent{
+        width: 400px;
+    }
+    #searchingField{
+        height: 27px;
+        width: 239px;
+        margin-top: 9px;
+    }
+
+    #searchingButton{
+        margin-top:13px;
+    }
+
+    #navigationPanel{
+        height: 22px;
+    }
+    #menuButton,#profileButton{
+        height: 22px;
+        width: 22px;
+    }
+
+    #profileButton{
+        margin-right: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #headerContent{
+        width: 360px;
+    }
+
+    #searchingField{
+        width: 239px;
+        height: 28px;
+    }
+
+    #searchingButton{
+        width: 18px;
+        height: 18px;
+        margin-left: 10px;
+    }
+
+    #menuButton,#profileButton{
+        height: 20px;
+        width: 20px;
+    }
+    #navigationPanel{
+        height: 20px;
+        margin-top: 13px;
+    }
+}
+
+@media screen and (max-width: 360px){
+    #headerContent{
+        width: 300px;
+    }
+
+    #searchingField{
+        width: 169px;
+        height: 26px;
+        margin-top: 12px;
+    }
+
+    #searchingButton{
+        width: 18px;
+        height: 18px;
+        margin-top:16px;
+    }
+}

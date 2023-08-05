@@ -32,12 +32,12 @@ public class User implements UserDetails {
 
     @Column(name="active")
     private boolean active;
+    
 
     @Column(name = "password",length = 1000)
     private String password;
 
     @ElementCollection(fetch = FetchType.EAGER)
-    @Column(name = "roles")
     @CollectionTable(name = "roles",joinColumns = @JoinColumn(name = "user_id"))
     @Enumerated(EnumType.STRING)
     private Set<Role> roles = new HashSet<>(Set.of(Role.ROLE_USER));
@@ -47,18 +47,20 @@ public class User implements UserDetails {
 
 
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name="friendship",joinColumns = @JoinColumn(referencedColumnName = "id",name="user_id"),
-            inverseJoinColumns = @JoinColumn(referencedColumnName = "id",name="friend_id"))
-    @Column(name = "friends")
-    private List<User> friends = new ArrayList<>();//массив айди друзей.
+    @ManyToMany(cascade = CascadeType.PERSIST,fetch = FetchType.LAZY)
+    @JoinTable(name="friendship",joinColumns = @JoinColumn(name="user_id"),
+            inverseJoinColumns = @JoinColumn(name="friend_id"))
+    private List<User> parentFriends = new ArrayList<>();
 
+    @ManyToMany(cascade = CascadeType.PERSIST,mappedBy = "parentFriends",fetch = FetchType.LAZY)
+    private List<User> childFriends = new ArrayList<>();
 
     @Column(name="git")
     private String gitHub;
 
-    @Column(name="avatar")
-    private String address_of_avatar;
+
+    @Column(name = "avatar")
+    private String avatar;
 
     @Column(name="country")
     private String country;
@@ -178,10 +180,10 @@ public class User implements UserDetails {
 
 
     public void setFriendsId(List<User> friends) {
-        this.friends = friends;
+        this.parentFriends = friends;
     }
-    public List<User> getFriends() {
-        return friends;
+    public List<User> getParentFriends() {
+        return parentFriends;
     }
 
     public String getGitHub() {
@@ -192,12 +194,12 @@ public class User implements UserDetails {
         this.gitHub = gitHub;
     }
 
-    public String getAddress_of_avatar() {
-        return address_of_avatar;
+    public String getAvatar() {
+        return avatar;
     }
 
-    public void setAddress_of_avatar(String address_of_avatar) {
-        this.address_of_avatar = address_of_avatar;
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 
     public String getCountry() {
@@ -214,5 +216,17 @@ public class User implements UserDetails {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public void setParentFriends(List<User> parentFriends) {
+        this.parentFriends = parentFriends;
+    }
+
+    public List<User> getChildFriends() {
+        return childFriends;
+    }
+
+    public void setChildFriends(List<User> childFriends) {
+        this.childFriends = childFriends;
     }
 }
