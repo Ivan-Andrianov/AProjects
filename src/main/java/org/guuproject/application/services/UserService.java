@@ -37,7 +37,8 @@ public class UserService {
 
     public boolean addFriend(User user,User friend){
         try {
-            user.getParentFriends().add(friend);
+            user.getFriends().add(friend);
+            friend.getFriends().add(user);
             repository.flush();
             return true;
         }catch (Exception ex){
@@ -47,7 +48,7 @@ public class UserService {
 
     public boolean deleteFriend(User user,User friend){
         try{
-            user.getParentFriends().remove(friend);
+            user.getFriends().remove(friend);
             repository.flush();
             return true;
         }catch (Exception ex){

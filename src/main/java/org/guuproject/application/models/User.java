@@ -1,5 +1,7 @@
 package org.guuproject.application.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import org.guuproject.application.models.enums.Role;
 import org.guuproject.application.models.enums.Status;
@@ -45,15 +47,12 @@ public class User implements UserDetails {
     @Column(name="dateOfCreated")
     private LocalDateTime dateOfCreated;//necessary
 
-
-
+    @JsonBackReference
     @ManyToMany(cascade = CascadeType.PERSIST,fetch = FetchType.LAZY)
     @JoinTable(name="friendship",joinColumns = @JoinColumn(name="user_id"),
             inverseJoinColumns = @JoinColumn(name="friend_id"))
-    private List<User> parentFriends = new ArrayList<>();
+    private List<User> friends = new ArrayList<>();
 
-    @ManyToMany(cascade = CascadeType.PERSIST,mappedBy = "parentFriends",fetch = FetchType.LAZY)
-    private List<User> childFriends = new ArrayList<>();
 
     @Column(name="git")
     private String gitHub;
@@ -180,10 +179,10 @@ public class User implements UserDetails {
 
 
     public void setFriendsId(List<User> friends) {
-        this.parentFriends = friends;
+        this.friends = friends;
     }
-    public List<User> getParentFriends() {
-        return parentFriends;
+    public List<User> getFriends() {
+        return friends;
     }
 
     public String getGitHub() {
@@ -218,15 +217,7 @@ public class User implements UserDetails {
         this.status = status;
     }
 
-    public void setParentFriends(List<User> parentFriends) {
-        this.parentFriends = parentFriends;
-    }
-
-    public List<User> getChildFriends() {
-        return childFriends;
-    }
-
-    public void setChildFriends(List<User> childFriends) {
-        this.childFriends = childFriends;
+    public void setFriends(List<User> parentFriends) {
+        this.friends = parentFriends;
     }
 }

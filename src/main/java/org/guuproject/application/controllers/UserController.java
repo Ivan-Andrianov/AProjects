@@ -44,7 +44,7 @@ public class UserController {
     @ResponseBody
     @GetMapping("/getFriends/{id}")
     public List<User> getFriendsOfUser(@PathVariable Long id){
-        return userRepository.findUserById(id).getParentFriends();
+        return userRepository.findUserById(id).getFriends();
     }
     @RequestMapping("/friends/{id}")
     public String getFriendsPage(@PathVariable(name="id") Long id){
