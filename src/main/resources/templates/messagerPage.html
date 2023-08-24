@@ -4,97 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width"/>
     <title></title>
-    <link rel="stylesheet" href="../styles/headerStile.css">
-    <link rel="stylesheet" href="../styles/commonStyle.css">
-    <link rel="stylesheet" href="../styles/friendsListCss.css">
-    <link rel="stylesheet" href="../styles/messagerStyle.css">
+    <link rel="stylesheet" href="/css/headerStile.css">
+    <link rel="stylesheet" href="/css/commonStyle.css">
+    <link rel="stylesheet" href="/css/friendsListStyle.css">
+    <link rel="stylesheet" href="/css/messagerStyle.css">
+    <script src="/js/friendsLoader.js"></script>
+    <script src="/js/messagerPageLoader.js"></script>
 </head>
 <body>
   <header>
     <div id="headerContent">
       <div id="searchingContainer">
         <input id="searchingField">
-        <input id="searchingButton" type="image" src="../pictures/search.png">
+        <input id="searchingButton" type="image" src="/pictures/search.png">
       </div>
 
       <div id="navigationPanel">
-        <input id="profileButton" type="image" src="../pictures/profile.png">
-        <input id="menuButton" type="image" src="../pictures/menu.png">
+        <input id="profileButton" type="image" src="/pictures/profile.png">
+        <input id="menuButton" type="image" src="/pictures/menu.png">
       </div>
     </div>
   </header>
 
   <div id="bodyContent">
     <div id="content">
-      <a id="userContainer">
-        <img class="avatar" src="../pictures/avatar9.png">
-        <p>Андрианов Иван (online)</p>
-      </a>
+
 
       <div id="messageContainer">
-          <div class="message">
-              <img class="avatarOfMessageUser" src="../pictures/avatar9.png">
-              <div class="messageUser">
-                  Привет
-              </div>
-          </div>
-          <div class="message">
-              <img class="avatarOfMessageFriend" src="../pictures/avatar13.jpg">
-              <div class="messageFriend">
-                  Привет
-              </div>
-          </div>
-          <div class="message">
-              <img class="avatarOfMessageUser" src="../pictures/avatar9.png">
-              <div class="messageUser">
-                  ты сейчас занята?
-              </div>
-          </div>
-          <div class="message">
-              <img class="avatarOfMessageFriend" src="../pictures/avatar13.jpg">
-              <div class="messageFriend">
-                  Нет, я свободна!
-              </div>
-          </div>
-          <div class="message">
-              <img class="avatarOfMessageUser" src="../pictures/avatar9.png">
-              <div class="messageUser">
-                  Можем пойти погулять
-                  Можем пойти погулять
-                  Можем пойти погулять
-                  Можем пойти погулять
-                  Можем пойти погулять
-                  Можем пойти погулять
-                  Можем пойти погулять
-                  Можем пойти погулять
-                  Можем пойти погулять
-                  Можем пойти погулять
-                  Можем пойти погулять
-                  Можем пойти погулять
-                  Можем пойти погулять
-                  Можем пойти погулять
-                  Можем пойти погулять
-                  Можем пойти погулять
-                  Можем пойти погулять
-                  Можем пойти погулять
-                  Можем пойти погулять
-                  Можем пойти погулять
-                  Можем пойти погулять
-              </div>
-          </div>
-          <div class="message">
-              <img class="avatarOfMessageUser" src="../pictures/avatar9.png">
-              <div class="messageUser">
-                  Привет
-              </div>
-          </div>
+
       </div>
 
-      <div id="messageWritingPanel">
-          <input id="attach" type="image" src="../pictures/attach.png">
-          <input id="messageInput">
-          <input id="send" type="image" src="../pictures/paperPlane.png">
-      </div>
+      <form id="messageWritingPanel">
+          <input id="attach" type="image" src="/pictures/attach.png">
+          <input id="messageInput" type="text">
+          <input id="send" type="image" src="/pictures/paperPlane.png">
+      </form>
     </div>
   </div>
 </body>

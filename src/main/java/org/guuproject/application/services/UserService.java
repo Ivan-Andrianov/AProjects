@@ -1,7 +1,9 @@
 package org.guuproject.application.services;
 
+import org.guuproject.application.models.Chat;
 import org.guuproject.application.models.User;
 import org.guuproject.application.models.enums.Role;
+import org.guuproject.application.repositories.ChatRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -15,22 +17,24 @@ import java.util.Set;
 public class UserService {
 
     public PasswordEncoder passwordEncoder;
-    public UserRepository repository;
+    public UserRepository userRepository;
+    private ChatRepository chatRepository;
 
     @Autowired
-    public UserService(PasswordEncoder passwordEncoder, UserRepository repository) {
+    public UserService(PasswordEncoder passwordEncoder, UserRepository userRepository, ChatRepository chatRepository) {
         this.passwordEncoder = passwordEncoder;
-        this.repository = repository;
+        this.userRepository = userRepository;
+        this.chatRepository = chatRepository;
     }
 
     public boolean createUser(User user){
-        if (repository.findUserByEmail(user.getUsername())!=null) return false;
+        if (userRepository.findUserByEmail(user.getUsername())!=null) return false;
         else{
             user.setActive(true);
             user.setRoles(new HashSet<>(Set.of(Role.ROLE_USER)));
             user.setPassword(passwordEncoder.encode(user.getPassword()));
             user.setFriendsId(new ArrayList<>());
-            repository.save(user);
+            userRepository.save(user);
             return true;
         }
     }
@@ -39,7 +43,9 @@ public class UserService {
         try {
             user.getFriends().add(friend);
             friend.getFriends().add(user);
-            repository.flush();
+            Chat chat = new Chat(user,friend);
+            chatRepository.save(chat);
+            userRepository.flush();
             return true;
         }catch (Exception ex){
             return false;
@@ -49,7 +55,7 @@ public class UserService {
     public boolean deleteFriend(User user,User friend){
         try{
             user.getFriends().remove(friend);
-            repository.flush();
+            userRepository.flush();
             return true;
         }catch (Exception ex){
             return false;

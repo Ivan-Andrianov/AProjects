@@ -1,12 +1,16 @@
 package org.guuproject.application.controllers;
 
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.guuproject.application.models.User;
 import org.guuproject.application.repositories.UserRepository;
 import org.guuproject.application.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -53,7 +57,12 @@ public class UserController {
 
     @ResponseBody
     @GetMapping("/getUser/{id}")
-    public User getUser(@PathVariable(name="id") Long id){
+    public User getUser(@PathVariable(name="id") Long id, HttpServletResponse response){
+        if (((UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername().equals(userRepository.findUserById(id).getUsername())){
+            response.addHeader("owner","true");
+        }else{
+            response.addHeader("owner","false");
+        }
         return userRepository.findUserById(id);
     }
 

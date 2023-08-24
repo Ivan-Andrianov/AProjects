@@ -120,6 +120,7 @@ header{
 #avatar{
     width: 142px;
     height: 200px;
+    object-fit: cover;
     border: #E7D2B3 4px solid;
     position: absolute;
     margin-top: 43px;
@@ -519,6 +520,7 @@ header{
     }
 
     .friendsAvatar{
+        margin-top:3px;
         height: 30px;
         width: 30px;
     }
@@ -647,6 +649,10 @@ header{
         height: 231px;
     }
 
+    .friendsAvatar{
+        margin-top: 5px;
+    }
+
     .friend{
         height: 41px;
         width: 281px;
@@ -695,6 +701,10 @@ header{
         width: 62px;
         height: 17px;
         font-size: 8px;
+    }
+
+    .userMembership{
+        display:none;
     }
 
 }

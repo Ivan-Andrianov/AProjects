@@ -23,7 +23,7 @@ public class WebSecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        return http.csrf(x->x.disable()).authorizeHttpRequests(authorize->authorize.requestMatchers("/profile/**","/profile").
+        return http.csrf(x->x.disable()).authorizeHttpRequests(authorize->authorize.requestMatchers("/profile/**","/profile","/chat/**").
                 authenticated().
                 anyRequest().permitAll()).formLogin(form->form.loginPage("/login")).build();
     }

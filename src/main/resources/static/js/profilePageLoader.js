@@ -38,6 +38,23 @@ function attachUserInformation(name,lastname,country,status){
     document.getElementById("status").textContent+=" "+status;
 }
 
+function attachNavigationPanelButton(request){
+    if (request.getResponseHeader("owner")==="true"){
+        document.getElementById("addFriendButton").style.display="none"
+        document.getElementById("writeMessageButton").style.display="none";
+        document.getElementById("editButton").style.display="inline-block";
+    }else{
+        document.getElementById("addFriendButton").style.display="inline-block"
+        document.getElementById("writeMessageButton").style.display="inline-block";
+        document.getElementById("editButton").style.display="none";
+    }
+}
+
+function attachReferences(user_id){
+    let references = document.getElementsByClassName("title");
+    references[0].setAttribute("href","/friends/".concat(user_id));
+}
+
 function requestForUserData(){
     let request = new XMLHttpRequest()
     let url = new URL(document.URL);
@@ -48,6 +65,8 @@ function requestForUserData(){
             attachAvatar(response["avatar"])
             attachUserInformation(response["name"],response["lastname"],response["country"],response["status"])
             attachFriends(response["id"])
+            attachNavigationPanelButton(request)
+            attachReferences(response["id"])
         }
     }
     request.open("GET","/getUser/"+parseInt(url.pathname.split("/").pop()));

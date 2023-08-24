@@ -3,9 +3,10 @@ window.onload=function (){
     let request = new XMLHttpRequest();
     request.onreadystatechange = function (){
         if (request.readyState===3) {
+            console.log(request.responseText)
             let user = JSON.parse(request.responseText);
-            showUser(user)
-            showFriends(user["friends"])
+            showUser(user," (friends)")
+            showFriends(user["id"])
         }
     }
     request.open("GET",'/getUser/'+userId);
@@ -13,7 +14,7 @@ window.onload=function (){
 }
 
 
-function showUser(user){
+function showUser(user,addition,before){
     let content = document.getElementById("content");
     let userContainer = document.createElement("a");
     userContainer.id = "userContainer";
@@ -21,33 +22,42 @@ function showUser(user){
     avatar.setAttribute("class","avatar");
     avatar.src = user["avatar"];
     let name = document.createElement("p");
-    name.textContent = user["name"]+" "+user["lastname"]+" (friends "+user["friends"].length+")";
+    name.textContent = user["name"]+" "+user["lastname"]+addition;
     userContainer.appendChild(avatar);
     userContainer.appendChild(name);
-    content.appendChild(userContainer);
+    if (before) content.insertBefore(userContainer,before);
+    else content.appendChild(userContainer);
 }
 
-function showFriends(friends){
-
-    for (let i = 0;i<friends.length;i++){
-        let friend = friends[i];
-        let content = document.getElementById("content");
-        let friendContainer = document.createElement("a");
-        friendContainer.setAttribute("class","friendContainer");
-        let avatar = document.createElement("img");
-        avatar.setAttribute("class","avatar");
-        avatar.src = friend["avatar"];
-        let name = document.createElement("p");
-        name.textContent = friend["name"]+" "+friend["lastname"];
-        let messageImg = document.createElement("img");
-        messageImg.setAttribute("class","messageImg");
-        messageImg.src = "/pictures/message.png";
-        friendContainer.appendChild(avatar);
-        friendContainer.appendChild(name);
-        friendContainer.appendChild(messageImg);
-        friendContainer.href="/profile/"+friend["id"];
-        content.appendChild(friendContainer);
+function showFriends(user_id){
+    let request = new XMLHttpRequest();
+    request.onreadystatechange=function () {
+        if (request.readyState===3) {
+            let friends = JSON.parse(request.responseText)
+            console.log(friends)
+            for (let i = 0; i < friends.length; i++) {
+                let friend = friends[i];
+                let content = document.getElementById("content");
+                let friendContainer = document.createElement("a");
+                friendContainer.setAttribute("class", "friendContainer");
+                let avatar = document.createElement("img");
+                avatar.setAttribute("class", "avatar");
+                avatar.src = friend["avatar"];
+                let name = document.createElement("p");
+                name.textContent = friend["name"] + " " + friend["lastname"];
+                let messageImg = document.createElement("img");
+                messageImg.setAttribute("class", "messageImg");
+                messageImg.src = "/pictures/message.png";
+                friendContainer.appendChild(avatar);
+                friendContainer.appendChild(name);
+                friendContainer.appendChild(messageImg);
+                friendContainer.href = "/profile/" + friend["id"];
+                content.appendChild(friendContainer);
+            }
+        }
     }
+    request.open("GET","/getFriends/".concat(user_id))
+    request.send()
 
 }
 

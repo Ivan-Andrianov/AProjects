@@ -11,21 +11,24 @@ public class Message {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
-    @JoinColumn(name = "chat_id", referencedColumnName = "id")
-    private Chat chat;
+    @Column
+    private Long chat_id;
 
 
     @Column(nullable = false)
     private String text;
 
+    @OneToOne
+    @JoinColumn(name = "sender_id")
+    private User sender;
 
-    public Chat getChat() {
-        return chat;
+
+    public Long getChat_id() {
+        return chat_id;
     }
 
-    public void setChat(Chat chat) {
-        this.chat = chat;
+    public void setChat_id(Long chat_id) {
+        this.chat_id = chat_id;
     }
 
     public String getText() {
@@ -36,11 +39,15 @@ public class Message {
         this.text = text;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public Long getId() {
         return id;
+    }
+
+    public User getSender() {
+        return sender;
+    }
+
+    public void setSender(User sender) {
+        this.sender = sender;
     }
 }

@@ -14,27 +14,49 @@ public class Chat {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany()
-    @JoinTable(
-            name = "chat_user",
-            joinColumns = @JoinColumn(name = "chat_id"),
-            inverseJoinColumns = @JoinColumn(name="member_id")
-    )
-    private List<User> members = new ArrayList<>();
+    @OneToMany
+    @JoinColumn(name = "chat_id")
+    private List<Message> listOfMessages = new ArrayList<>();
 
-    public void setId(Long id) {
-        this.id = id;
+    @ManyToOne
+    @JoinColumn(name = "user_id1")
+    private User user1;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id2")
+    private User user2;
+
+    public Chat(User user1, User user2) {
+        this.user1 = user1;
+        this.user2 = user2;
+    }
+
+    public Chat() {
+        
     }
 
     public Long getId() {
         return id;
     }
 
-    public List<User> getMembers() {
-        return members;
+    public User getUser1() {
+        return user1;
     }
 
-    public void setMembers(List<User> members) {
-        this.members = members;
+    public void setUser1(User user1) {
+        this.user1 = user1;
     }
+
+    public User getUser2() {
+        return user2;
+    }
+
+    public void setUser2(User user2) {
+        this.user2 = user2;
+    }
+
+    public List<Message> getListOfMessages() {
+        return listOfMessages;
+    }
+
 }
