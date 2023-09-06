@@ -17,32 +17,26 @@ public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(nullable = false,unique = true)
     private Long id;
 
-    @Column(name="email")
     private String email;
 
     @Column(name="phone_number")
     private String phoneNumber;
 
-    @Column(name="name")
     private String name;//necessary
 
-    @Column(name="lastname")
     private String lastname;//necessary
 
-    @Column(name="active")
     private boolean active;
     
 
-    @Column(name = "password",length = 1000)
+    @Column(length = 1000)
     private String password;
 
-    @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "roles",joinColumns = @JoinColumn(name = "user_id"))
-    @Enumerated(EnumType.STRING)
-    private Set<Role> roles = new HashSet<>(Set.of(Role.ROLE_USER));
+    @Enumerated(value = EnumType.STRING)
+    private Role role;
 
     @Column(name="dateOfCreated")
     private LocalDateTime dateOfCreated;//necessary
@@ -71,7 +65,9 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return  roles;
+        List<Role> authorities = new ArrayList<>();
+        authorities.add(role);
+        return  authorities;
     }
 
     @Override
@@ -157,12 +153,12 @@ public class User implements UserDetails {
         this.password = password;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
+    public Role getRole() {
+        return role;
     }
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     public LocalDateTime getDateOfCreated() {

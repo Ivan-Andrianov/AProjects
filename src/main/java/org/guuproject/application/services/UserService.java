@@ -31,7 +31,7 @@ public class UserService {
         if (userRepository.findUserByEmail(user.getUsername())!=null) return false;
         else{
             user.setActive(true);
-            user.setRoles(new HashSet<>(Set.of(Role.ROLE_USER)));
+            user.setRole(Role.ROLE_USER);
             user.setPassword(passwordEncoder.encode(user.getPassword()));
             user.setFriendsId(new ArrayList<>());
             userRepository.save(user);
