@@ -1,7 +1,6 @@
 package org.guuproject.application.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import org.guuproject.application.models.enums.Role;
 import org.guuproject.application.models.enums.Status;
@@ -19,49 +18,30 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false,unique = true)
     private Long id;
-
-    private String email;
-
-    @Column(name="phone_number")
-    private String phoneNumber;
-
-    private String name;//necessary
-
-    private String lastname;//necessary
-
+    private String username;
+    private String phone_number;
+    private String name;
+    private String lastname;
     private boolean active;
-    
 
     @Column(length = 1000)
     private String password;
 
-    @Enumerated(value = EnumType.STRING)
+    @Enumerated(EnumType.STRING)
     private Role role;
-
-    @Column(name="dateOfCreated")
-    private LocalDateTime dateOfCreated;//necessary
+    private LocalDateTime date_of_created;//necessary
 
     @JsonBackReference
     @ManyToMany(cascade = CascadeType.PERSIST,fetch = FetchType.LAZY)
     @JoinTable(name="friendship",joinColumns = @JoinColumn(name="user_id"),
             inverseJoinColumns = @JoinColumn(name="friend_id"))
     private List<User> friends = new ArrayList<>();
-
-
-    @Column(name="git")
-    private String gitHub;
-
-
-    @Column(name = "avatar")
-    private String avatar;
-
-    @Column(name="country")
+    private String git;
+    private Image avatar;
     private String country;
 
-    @Column(name="status")
     @Enumerated(EnumType.STRING)
     private Status status;
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -77,7 +57,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return email;
+        return username;
     }
 
     @Override
@@ -102,27 +82,23 @@ public class User implements UserDetails {
 
     @PrePersist
     public void init(){
-        dateOfCreated = LocalDateTime.now();
+        date_of_created = LocalDateTime.now();
     }
 
     public Long getId() {
         return id;
     }
 
-    public String getEmail() {
-        return email;
+    public void setUsername(String email) {
+        this.username = email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public String getPhone_number() {
+        return phone_number;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setPhone_number(String phoneNumber) {
+        this.phone_number = phoneNumber;
     }
 
     public String getName() {
@@ -162,11 +138,11 @@ public class User implements UserDetails {
     }
 
     public LocalDateTime getDateOfCreated() {
-        return dateOfCreated;
+        return date_of_created;
     }
 
-    public void setDateOfCreated(LocalDateTime dateOfCreated) {
-        this.dateOfCreated = dateOfCreated;
+    public void setDateOfCreated(LocalDateTime date_of_created) {
+        this.date_of_created = date_of_created;
     }
 
 
@@ -177,19 +153,19 @@ public class User implements UserDetails {
         return friends;
     }
 
-    public String getGitHub() {
-        return gitHub;
+    public String getGit() {
+        return git;
     }
 
-    public void setGitHub(String gitHub) {
-        this.gitHub = gitHub;
+    public void setGit(String gitHub) {
+        this.git = gitHub;
     }
 
-    public String getAvatar() {
+    public Image getAvatar() {
         return avatar;
     }
 
-    public void setAvatar(String avatar) {
+    public void setAvatar(Image avatar) {
         this.avatar = avatar;
     }
 
