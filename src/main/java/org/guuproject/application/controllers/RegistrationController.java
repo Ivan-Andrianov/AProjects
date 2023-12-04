@@ -1,6 +1,7 @@
 package org.guuproject.application.controllers;
 
 
+import org.guuproject.application.models.Image;
 import org.guuproject.application.models.User;
 import org.guuproject.application.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -22,7 +22,7 @@ public class CustomUserDetailService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = repository.findUserByEmail(username);
+        User user = repository.findUserByUsername(username);
 
         return user==null?new User():user;
     }

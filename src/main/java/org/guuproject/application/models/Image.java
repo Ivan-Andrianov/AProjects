@@ -3,6 +3,8 @@ package org.guuproject.application.models;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "images")
 public class Image {
@@ -11,15 +13,16 @@ public class Image {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String path;
+    @Column(name="path")
+    private String picture_path;
 
+    @Column(name="date_of_creating")
+    private LocalDateTime date_of_creating;
 
-    public String getPath() {
-        return path;
-    }
+    public Image() {}
 
-    public void setPath(String path) {
-        this.path = path;
+    public Image(String picture_path) {
+        this.picture_path = picture_path;
     }
 
     public void setId(Long id) {
@@ -28,5 +31,21 @@ public class Image {
 
     public Long getId() {
         return id;
+    }
+
+    public String getPath() {
+        return picture_path;
+    }
+
+    public void setPath(String picture_path) {
+        this.picture_path = picture_path;
+    }
+
+    public LocalDateTime getDate_of_creating() {
+        return date_of_creating;
+    }
+
+    public void setDate_of_creating(LocalDateTime date_of_creating) {
+        this.date_of_creating = date_of_creating;
     }
 }

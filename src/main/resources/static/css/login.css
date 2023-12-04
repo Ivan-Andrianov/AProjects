@@ -1,0 +1,43 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+#loginContainer{
+    width: 389px;
+    height: 522px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    margin-top: 45px;
+    border-radius: 25px;
+    box-shadow: 0 0 10px 2px rgba(0,0,0,0.25);
+    overflow: auto;
+}
+
+@media  screen and (max-width: 1024px) {
+
+    #loginContainer {
+        width: 368px;
+        height: 440px;
+    }
+}
+@media screen and (max-width: 768px) {
+    #loginContainer {
+        width: 340px;
+        height: 391px;
+        margin-top: 45px;
+    }
+}
+@media screen and (max-width: 600px) {
+    #loginContainer {
+        width: 316px;
+        height: 382px;
+    }
+}
+
+@media screen and (max-width: 360px){
+    #loginContainer{
+        width: 277px;
+        height: 340px;
+    }
+}
+

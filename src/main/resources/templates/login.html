@@ -2,24 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Login</title>
+    <link type="text/css" href="css/login.css" rel="stylesheet">
+    <link type="text/css" href="css/commonLoginAndRegistration.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width">
-    <link type="text/css" rel="stylesheet" href="/css/loginStyle.css">
+    <script src="js/loginPageJS.js"></script>
+    <script src="js/loginAndRegistrationPageJS.js"></script>
+    <script src="js/commonLibraryJS.js"></script>
+
 </head>
-
 <body>
-    <div id="authenticationContainer">
-        <p id="title">Authentication</p>
-        <form method="post" action="/login">
-            <p>Login</p>
-            <input id="login" type="text" name="username">
-            <p>Password</p>
-            <input type="password" name="password">
-            <div id="panel">
-                <input id="button" type="submit" value="Log In" onclick="{document.getElementById('button').style.backgroundColor='green'}">
-                <a href="/registration" id="linkToRegistration">Not registered yet?</a>
-            </div>
-        </form>
-
+<div id="loginContainer">
+    <p id="title">Authentication</p>
+    <form id="loginForm" method="post" action="/login">
+        <div class="field">
+            <input id="loginField" class="input" name="username" placeholder="Email" >
+            <div class="hint" title="Введите почту">?</div>
+        </div>
+        <div class="field">
+            <input id="passwordField" class="input" name="password" type="password" placeholder="Password*">
+            <div class="hint" title="Введите пароль">?</div>
+        </div>
+        <input id="submitButton" type="submit" value="Sign in">
+    </form>
+    <div id="decoration">
+        <div class="line"></div>
+        or
+        <div class="line"></div>
     </div>
+    <div id="externalAuthenticationPanel">
+        <input type="image" src="pictures/VK.png">
+        <input type="image" src="pictures/Google.png">
+    </div>
+    <a href="/registration">Sign up</a>
+</div>
 </body>
 </html>

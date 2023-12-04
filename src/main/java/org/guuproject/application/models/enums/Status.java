@@ -1,13 +1,10 @@
 package org.guuproject.application.models.enums;
 
 public enum Status {
-    Student,
+
+    INVESTOR,
+    STUDENT,
     WORKER,
-    NONE;
+    NONE
 
-
-    @Override
-    public String toString() {
-        return this.name();
-    }
 }

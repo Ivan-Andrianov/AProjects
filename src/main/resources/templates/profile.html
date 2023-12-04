@@ -2,80 +2,135 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
     <title>Profile</title>
-    <link rel="stylesheet" href="/css/profileStyle.css">
-    <link rel="stylesheet" href="/css/commonStyle.css">
-    <script src="/js/profilePageLoader.js"></script>
+    <link rel="stylesheet" href="/css/profile.css">
+    <link rel="stylesheet" href="/css/news.css">
+    <meta name="viewport" content="width=device-width">
+    <script src="/js/profile.js"></script>
+    <script src="/js/commonLibraryJS.js"></script>
 </head>
-<body onload="requestForUserData()">
+<body>
 <header>
-    <div id="headerContent">
-        <div id="searchingContainer">
-            <input id="searchingField">
-            <input id="searchingButton" type="image" src="/pictures/search.png">
-        </div>
-        <div id="navigationPanel">
-            <input id="profileButton" type="image" src="/pictures/profile.png">
-            <input id="menuButton" type="image" src="/pictures/menu.png">
+    <div id="header_content">
+        Demetra's
+        <div id="header_menu_content">
+            <button id="header_menu_profile_button" type="button">Профиль</button>
+            <button id="header_menu_friends_button" type="button" onclick="window.location = '/friends/'+getUserIdFromURL()">Друзья</button>
+            <button id="header_menu_messages_button" type="button" onclick="window.location = '/messages/'+getUserIdFromURL()">Сообщения</button>
+            <button id="header_menu_news_button" type="button" onclick="window.location = '/news/'">Новости</button>
         </div>
     </div>
 </header>
 
-<div id="bodyContent">
-    <div id="content">
-        <div id="userInformationContainer">
+<div id="main_container">
+    <div id="user_information_container">
+        <div id="user_information_content">
             <img id="avatar">
-            <div id="decoration"></div>
-            <div id="userInformation">
-                <p id="username"></p>
-                <p id="country">Страна: </p>
-                <p id="status">Статус: </p>
-                <input id="editButton" type="button" value="Edit profile">
-                <input id="addFriendButton" type="button" value="Add friend">
-                <input id="writeMessageButton" type="button" value="Write message">
-            </div>
-        </div>
+            <p class="name"></p>
+            <p id="age" class="information"></p>
+            <p id="country" class="information"></p>
+            <p id="status" class="information"></p>
 
+            <button class="user_information_container_button" id="user_information_container_button_1">
+            </button>
 
-        <div id="friendsContainer">
-            <a class="title" href="/">Friends</a>
-        </div>
-        <div id="projectsContainer">
-            <p class="title">Projects</p>
-            <a class="project">
-                <p class="projectName">ProjectName</p>
-                <p class="userMembership">Status of membership: admin</p>
-                <p class="lastModification">Last modification: 10.02.2023</p>
-            </a>
-            <a class="project">
-                <p class="projectName">ProjectName</p>
-                <p class="userMembership">Status of membership: admin</p>
-                <p class="lastModification">Last modification: 10.02.2023</p>
-            </a>
-            <a class="project">
-                <p class="projectName">ProjectName</p>
-                <p class="userMembership">Status of membership: admin</p>
-                <p class="lastModification">Last modification: 10.02.2023</p>
-            </a>
-        </div>
-        <div id="teamsContainer">
-            <p class="title">Teams</p>
-            <a class="team">
-                <p class="teamName">TeamName</p>
-                <p class="teamMembership">Status of membership: admin</p>
-            </a>
-            <a class="team">
-                <p class="teamName">TeamName</p>
-                <p class="teamMembership">Status of membership: admin</p>
-            </a>
-            <a class="team">
-                <p class="teamName">TeamName</p>
-                <p class="teamMembership">Status of membership: admin</p>
-            </a>
-
+            <button class="user_information_container_button" id="user_information_container_button_2">
+            </button>
         </div>
     </div>
+
+    <div id="gallery">
+        <div id="images_gallery_container">
+            <img id="first_image" src="/pictures/user_pictures/0.jpg" class="gallery_image">
+            <img id="second_image" src="/pictures/user_pictures/0.jpg" class="gallery_image">
+            <img id="third_image" src="/pictures/user_pictures/0.jpg" class="gallery_image">
+            <img id="forth_image" src="/pictures/user_pictures/0.jpg" class="gallery_image">
+            <img id="fifth_image" src="/pictures/user_pictures/0.jpg" class="gallery_image">
+            <img id="sixth_image" src="/pictures/user_pictures/0.jpg" class="gallery_image">
+        </div>
+        <button id="show_all_images_button">Показать все</button>
+    </div>
+
+    <button id="create_new_button" type="button">
+        <span>+</span><p>Новая запись</p>
+    </button>
+
+    <div id="menu">
+        <div id="profile_button" class="menu_button">Профиль</div>
+        <div id="friend_button" class="menu_button">Друзья</div>
+        <div id="messages_button" class="menu_button">Сообщения</div>
+        <div id="news_button" class="menu_button">Новости</div>
+        <div id="setting_button" class="menu_button">Настройки</div>
+    </div>
+
+    <div id="friends_container">
+        <div id="friends_container_topic" onclick="window.location = '/friends/'+getUserIdFromURL()">Друзья</div>
+    </div>
+
+    <div id="news_container" class="news">
+    </div>
 </div>
+
+<div id="modal">
+    <div class="overlay">
+    </div>
+
+    <div id="all_pictures_container">
+        <div id="images_container">
+            <img class="user_image" src="images/sveta_avatar.png">
+            <img class="user_image" src="images/kazan.png">
+            <img class="user_image" src="images/lager.png">
+            <img class="user_image" src="images/home.png">
+            <img class="user_image" src="images/beautiful.png">
+            <img class="user_image" src="images/sueta.png">
+        </div>
+        <button class="close">X</button>
+    </div>
+
+    <div id="picture_container">
+        <img id="single_user_picture" src="images/beautiful.png">
+
+
+        <div class="interactive_panel">
+            <div class="buttons_container">
+                <button class="like">
+                    <img src="images/like.png">
+                    <p>100k</p>
+                </button>
+                <button class="repost">
+                    <img src="images/repost.png">
+                    <p>100k</p>
+                </button>
+            </div>
+        </div>
+        <button class="close">X</button>
+    </div>
+
+    <div id="add_photo_window">
+        <form id="add_photo_form" enctype="multipart/form-data" method="POST" action="/upload/attach_avatar">
+            <input id="file_input_photo" name="file" type="file" onchange="file_uploaded()">
+            <label class="label_for_file_input" for="file_input_photo">
+                <img class="plus_image" src="/pictures/plus.png">
+            </label>
+            <input id="add_photo_window_submit_button" type="submit" value="Прикрепить">
+            <p class="uploaded_file_count"></p>
+        </form>
+        <button class="close">X</button>
+    </div>
+
+    <div id="add_news_window">
+        <form id="add_news_form" enctype="multipart/form-data" method="post" action="/createNews">
+            <input id="file_input_news" name="file" type="file" onchange="file_uploaded()">
+            <label class="label_for_file_input"  for="file_input_news">
+                <img class="plus_image" src="/pictures/plus.png">
+            </label>
+            <input id="topic_input" name="topic" type="text" placeholder="Тема новости...">
+            <input id="add_news_window_submit_button" type="submit" value="Создать">
+            <p class="uploaded_file_count"></p>
+        </form>
+        <button class="close">X</button>
+    </div>
+</div>
+
 </body>
 </html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="/css/chat.css">
+    <script src="/js/chat.js"></script>
+    <script src="/js/modules/stomp.js"></script>
+    <script src="/js/modules/sockjs.js"></script>
+    <script src="/js/commonLibraryJS.js"></script>
+    <title>Chat</title>
+</head>
+<body>
+    <header>
+        <div class="header_content">Demetra's</div>
+    </header>
+
+    <div class="main_content">
+        <div class="chat_window">
+        </div>
+
+        <div class="message_write_panel">
+            <input class="attach_button" type="image" src="/pictures/attach.png"/>
+            <input class="message_input" placeholder="Write message...">
+            <input class="send_button" type="image" src="/pictures/plane.png">
+            <input class="smile_button" type="image" src="/pictures/emotion.png">
+        </div>
+
+        <div class="menu">
+            <div id="profile_button" class="menu_button">Профиль</div>
+            <div id="friend_button" class="menu_button">Друзья</div>
+            <div id="messages_button" class="menu_button">Сообщения</div>
+            <div id="news_button" class="menu_button">Новости</div>
+            <div id="setting_button" class="menu_button">Настройки</div>
+        </div>
+
+        <div class="receiver_searching_window">
+            <div class="searching_panel">
+                <input class="searching_input" placeholder="Find receiver..." />
+                <input class="searching_button" type="image" src="/pictures/search.png">
+            </div>
+            <div class="result_panel">
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
