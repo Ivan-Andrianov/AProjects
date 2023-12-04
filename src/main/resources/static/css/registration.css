@@ -1,0 +1,39 @@
+#registrationContainer{
+    width: 389px;
+    height: 712px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    margin-top: 45px;
+    border-radius: 25px;
+    box-shadow: 0 0 10px 2px rgba(0,0,0,0.25);
+    overflow: auto;
+}
+
+@media  screen and (max-width: 1024px) {
+    #registrationContainer{
+        width: 368px;
+        height: 630px;
+    }
+}
+
+@media screen and (max-width: 768px){
+    #registrationContainer{
+        width: 340px;
+        height: 557px;
+    }
+}
+
+@media screen and (max-width: 600px){
+    #registrationContainer{
+        width: 316px;
+        height: 550px;
+    }
+}
+
+@media screen and (max-width: 360px){
+    #registrationContainer{
+        width: 277px;
+        height: 474px;
+    }
+}

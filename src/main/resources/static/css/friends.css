@@ -1,0 +1,561 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+@font-face {
+    font-family: 'Kaushan';
+    src: url("../fonts/Kaushan.ttf");
+}
+
+@font-face{
+    font-family: 'Inter';
+    src: url("../fonts/inter.ttf");
+}
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Inter';
+    -webkit-user-select: none;
+}
+
+body{
+    min-width: 314px;
+    font-family: 'Inter';
+}
+
+header{
+    height: 55px;
+    width: 100%;
+    background-color: #79A855;
+}
+
+.header_content{
+    width: 1067px;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    text-align: left;
+    font-size: 40px;
+    font-family: 'Kaushan';
+}
+
+.main_content{
+    width: 1057px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    margin-top: 42px;
+}
+
+.menu{
+    width: 285px;
+    height: 190px;
+    box-shadow: 4px 4px 4px 0 rgba(0,0,0,0.25);
+    position: absolute;
+    right: 5px;
+    top:0px;
+}
+
+.menu_button{
+    width: 100%;
+    height: 38px;
+    text-align: center;
+    line-height: 38px;
+    cursor: pointer;
+    border-bottom: 1px #79A855 solid;
+    background-color: #F2F2F2;
+}
+
+.menu :last-child{
+    border:none;
+}
+
+.friends_container{
+    width: 454px;
+    position: relative;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 51px;
+}
+
+.friends_container .user_container+.user_container{
+    margin-top: 9px;
+}
+
+.user_container{
+    width: 454px;
+    height: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #F2F2F2;
+    box-shadow: 0 2px 4px 2px rgba(0,0,0,0.25);
+    position: relative;
+    user-select: none;
+}
+
+.avatars{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    position: absolute;
+    display: block;
+    margin-left: 78px;
+    margin-top: 10px;
+}
+
+.name{
+    margin-top: 23px;
+    margin-left: 143px;
+    position: absolute;
+    font-size: 20px;
+}
+
+.user_searching_window{
+    width: 285px;
+    height: 42px;
+    background-color: #F2F2F2;
+    box-shadow: -2px 4px 4px 0 rgba(0,0,0,0.25);
+    position: absolute;
+    margin-left: 0;
+    margin-top: 0;
+}
+
+.result_searching_window{
+    width: 285px;
+    position:absolute;
+    margin-top: 57px;
+    box-shadow: -2px 4px 4px 0 rgba(0,0,0,0.25);
+}
+
+.user_result_container{
+    width: 285px;
+    height: 54px;
+    background-color: #F2F2F2;
+    line-height: 54px;
+    cursor: pointer;
+}
+
+.user_result_container+.user_result_container{
+    border-top: 1px black solid;
+}
+
+.searching_field{
+    width: 193px;
+    height: 24px;
+    border-radius: 5px;
+    outline: none;
+    border:1px black solid;
+    border-radius: 5px;
+    display: block;
+    position: absolute;
+    margin-left: 20px;
+    margin-top: 9px;
+    padding-left: 5px;
+    font-size: 12px;
+}
+
+.searching_result_avatar{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: absolute;
+    margin-left: 35px;
+    margin-top: 7px;
+}
+
+.searching_result_name{
+    margin-left: 85px;
+}
+
+.searching_button{
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    display: block;
+    right: 45px;
+    top: 11px;
+}
+
+@media screen and (max-width: 1024px) {
+    header{
+        height: 50px;
+    }
+
+    .header_content{
+        width: 769px;
+        font-size: 35px;
+    }
+
+    .main_content{
+        width: 769px;
+        margin-top: 38px;
+    }
+
+    .menu{
+        width: 199px;
+        height: 175px;
+        font-size: 14px;
+    }
+
+    .menu_button{
+        height: 35px;
+        line-height: 35px;
+    }
+
+    .friends_container{
+        width: 310px;
+        margin-top: 36px;
+    }
+
+    .user_container{
+        width: 310px;
+        height: 63px;
+    }
+
+    .avatars{
+        width: 50px;
+        height: 50px;
+        margin-left: 25px;
+        margin-top: 7px;
+    }
+
+    .name{
+        margin-top: 23px;
+        margin-left: 90px;
+        position: absolute;
+        font-size: 14px;
+    }
+
+
+    .user_searching_window{
+        width: 220px;
+        height: 42px;
+    }
+
+    .result_searching_window{
+        width: 220px;
+    }
+
+    .user_result_container{
+        width: 220px;
+        height: 49px;
+        line-height: 49px;
+    }
+
+    .searching_field{
+        width: 182px;
+        height: 22px;
+        margin-left: 6px;
+        margin-top: 10px;
+    }
+
+    .searching_result_avatar{
+        margin-left: 8px;
+        margin-top: 5px;
+    }
+
+    .searching_result_name{
+        margin-left: 58px;
+        font-size: 14px;
+    }
+
+    .searching_button{
+        width: 15px;
+        height: 15px;
+        right: 13px;
+        top: 13px;
+    }
+}
+@media screen and (max-width: 768px) {
+    header{
+        height: 45px;
+    }
+
+    .header_content{
+        width: 561px;
+        font-size: 30px;
+    }
+
+    .main_content{
+        width: 561px;
+        margin-top:36px;
+    }
+
+    .menu{
+        width: 231px;
+        height: 150px;
+    }
+
+    .menu_button{
+        height: 30px;
+        line-height: 30px;
+    }
+
+    .friends_container{
+        width: 305px;
+        margin-top: 33px;
+        margin-left: 0px;
+    }
+
+    .user_container{
+        width: 305px;
+        height: 50px;
+        margin-left: 0px;
+    }
+
+    #main_user_container{
+        margin-top:24px;
+    }
+
+    .avatars{
+        width: 40px;
+        height: 40px;
+        margin-left: 36px;
+        margin-top: 5px;
+    }
+
+    .name{
+        margin-top: 17px;
+        margin-left: 90px;
+        font-size: 12px;
+    }
+
+    .user_searching_window{
+        width: 305px;
+        height: 42px;
+        box-shadow: -2px 4px 4px 0 rgba(0,0,0,0.25);
+        position: relative;
+        margin-left: 0;
+        margin-top: 0;
+    }
+
+    .result_searching_window{
+        display: none;
+    }
+
+    .searching_field{
+        width: 232px;
+        height: 22px;
+        margin-left: 20px;
+        margin-top: 10px;
+    }
+
+    .searching_button{
+        width: 18px;
+        height: 18px;
+        right: 20px;
+        top: 11px;
+    }
+}
+@media screen and (max-width: 600px) {
+    header{
+        height: 40px;
+    }
+
+    .header_content{
+        width: 472px;
+        font-size: 25px;
+    }
+
+    .main_content{
+        width: 472px;
+        margin-top: 25px;
+    }
+
+    .menu{
+        width: 181px;
+        height: 150px;
+    }
+
+    .menu_button{
+        height: 30px;
+        line-height: 30px;
+    }
+
+    .friends_container{
+        width: 266px;
+        margin-top: 24px;
+    }
+
+    .user_container{
+        width: 266px;
+        height: 50px;
+    }
+
+
+    .avatars{
+        width: 40px;
+        height: 40px;
+        margin-left: 22px;
+        margin-top: 5px;
+    }
+
+    .name{
+        margin-top: 17px;
+        margin-left: 77px;
+        font-size: 14px;
+    }
+
+    .user_searching_window{
+        width: 266px;
+        height: 42px;
+    }
+
+    .searching_field{
+        width: 200px;
+        height: 22px;
+        margin-left: 20px;
+        margin-top: 10px;
+    }
+
+    .searching_button{
+        width: 18px;
+        height: 18px;
+        right: 20px;
+        top: 11px;
+    }
+}
+@media screen and (max-width: 480px) {
+    header{
+        height: 35px;
+    }
+
+    .header_content{
+        width: 346px;
+        font-size: 22px;
+    }
+
+    .main_content{
+        width: 346px;
+        margin-top: 20px;
+    }
+
+    .menu{
+        width: 109px;
+        height: 115px;
+        font-size: 10px;
+    }
+
+    .menu_button{
+        height: 23px;
+        line-height: 22px;
+    }
+
+    .friends_container{
+        width: 212px;
+        margin-top: 16px;
+    }
+
+    .user_container{
+        width: 212px;
+        height: 35px;
+    }
+
+    .avatars{
+        width: 30px;
+        height: 30px;
+        margin-left: 7px;
+        margin-top: 3px;
+    }
+
+    .name{
+        margin-top: 11px;
+        margin-left: 47px;
+        font-size: 10px;
+    }
+
+    .user_searching_window{
+        width: 212px;
+        height: 32px;
+    }
+
+    .searching_field{
+        width: 161px;
+        height: 18px;
+        margin-left: 8px;
+        margin-top: 7px;
+        font-size: 10px;
+    }
+
+    .searching_button{
+        width: 14px;
+        height: 14px;
+        right: 20px;
+        top: 9px;
+    }
+}
+@media screen and (max-width: 360px) {
+    header{
+        height: 30px;
+    }
+
+    .header_content{
+        width: 314px;
+        font-size: 18px;
+    }
+
+    .main_content{
+        width: 314px;
+        margin-top: 15px;
+    }
+    .menu{
+        height: 90px;
+    }
+
+    .menu_button{
+        height: 18px;
+        line-height: 18px;
+    }
+
+    .friends_container{
+        width: 185px;
+        margin-top: 14px;
+    }
+
+    .friends_container .user_container+.user_container{
+        margin-top: 8px;
+    }
+
+    .user_container{
+        width: 185px;
+        height: 35px;
+    }
+
+    .avatars{
+        width: 30px;
+        height: 30px;
+        margin-left: 7px;
+        margin-top: 3px;
+    }
+
+    .name{
+        margin-top: 11px;
+        margin-left: 47px;
+        position: absolute;
+        font-size: 10px;
+    }
+
+    .user_searching_window{
+        width: 185px;
+        height: 33px;
+    }
+
+    .searching_field{
+        width: 140px;
+        height: 18px;
+        margin-left: 8px;
+        margin-top: 8px;
+    }
+
+    .searching_button{
+        width: 13px;
+        height: 13px;
+        right: 15px;
+        top: 10px;
+    }
+}

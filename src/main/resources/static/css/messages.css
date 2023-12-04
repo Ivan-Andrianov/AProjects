@@ -1,0 +1,577 @@
+@font-face {
+    font-family: 'Kaushan';
+    src: url("../fonts/Kaushan.ttf");
+}
+
+@font-face{
+    font-family: 'Inter';
+    src: url("../fonts/inter.ttf");
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Inter';
+}
+
+body{
+    min-width: 315px;
+}
+
+header{
+    background-color: #79A855;
+    height: 55px;
+}
+
+.header_content{
+    font-family: "Kaushan";
+    font-size: 40px;
+    margin-left: auto;
+    margin-right:auto;
+    height: 100%;
+    width: 762px;
+    color:white;
+}
+
+.main_content{
+    margin-top: 42px;
+    width: 762px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: auto;
+    min-height: 205px;
+}
+
+.user_container,.message{
+    width: 454px;
+    height: 70px;
+    background-color: #F2F2F2;
+    box-shadow: 0px 2px 4px 2px rgba(0,0,0,0.25);
+    position: absolute;
+    margin-left: 2px;
+    text-align: center;
+}
+
+.user_container{
+    margin-top:5px;
+    user-select: none;
+    margin-left: 5px;
+}
+
+.title{
+    display: inline-block;
+    line-height: 70px;
+    font-size: 20px;
+}
+.topic{
+    line-height: 50px;
+    display: inline;
+    vertical-align: middle;
+}
+
+.avatars{
+    width:50px;
+    height: 50px;
+    object-fit: cover;
+    display: block;
+    position:absolute;
+    margin-left: 20px;
+    border-radius: 50%;
+    margin-top: 10px;
+}
+
+#menu{
+    width: 285px;
+    height: 190px;
+    box-shadow: 4px 4px 4px 0 rgba(0,0,0,0.25);
+    position: absolute;
+    top:5px;
+    right: 6px;
+}
+
+.menu_button{
+    user-select: none;
+    background-color: #F2F2F2;
+    cursor: pointer;
+    width: 100%;
+    height: 38px;
+    border-bottom: 1px #79A855 solid;
+    line-height: 38px;
+    text-align: center;
+    font-size: 14px;
+}
+
+#menu :last-child{
+    border-bottom: none;
+}
+
+.messages_container{
+    position: relative;
+    margin-top: 125px;
+    width: 459px;
+}
+
+.message{
+    position: relative;
+    cursor: pointer;
+    width: 454px;
+    bottom: 5px;
+    margin-left: 5px;
+}
+
+.message_content{
+    position: relative;
+    top:7px;
+    margin-left: 135px;
+}
+
+.message_text{
+    position: relative;
+    line-height: 30px;
+    text-align: left;
+}
+.sender_avatar{
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.sender_name{
+    font-size: 16px;
+    margin-top:10px;
+    text-align: left;
+}
+
+.text{
+    font-size: 14px;
+    width: max-content;
+    margin-left: 35px;
+    margin-top:5px
+}
+
+.messages_container .avatars{
+    margin-left: 70px;
+}
+
+.new_messages{
+    color: #79A855;
+}
+
+@media screen and (max-width: 1024px) {
+    header{
+        height: 50px;
+    }
+
+    .header_content{
+        font-size: 35px;
+        width: 725px;
+    }
+
+    .main_content{
+        width: 725px;
+    }
+
+    .user_container{
+        width: 409px;
+        height: 63px;
+    }
+
+    .title{
+        line-height: 63px;
+        font-size: 16px;
+    }
+
+    .avatars{
+        width:50px;
+        height: 50px;
+        margin-left: 18px;
+        margin-top: 7px;
+    }
+
+    #menu{
+        width: 249px;
+        height: 190px;
+    }
+
+    .menu_button{
+        height: 38px;
+        text-align: center;
+    }
+
+    .messages_container{
+        margin-top: 112px;
+        width: 419px;
+    }
+
+    .message{
+        width: 409px;
+        height: 63px;
+    }
+
+    .message_content{
+        top:5px;
+        margin-left: 110px;
+    }
+
+    .message_text{
+        margin-top: 4px;
+        line-height: 26px;
+    }
+    .sender_avatar{
+        width: 26px;
+        height: 26px;
+    }
+
+    .sender_name{
+        margin-top:7px;
+    }
+
+    .text{
+        margin-left: 30px;
+        margin-top:7px;
+    }
+
+    .messages_container .avatars{
+        margin-left: 40px;
+        margin-top: 7px;
+    }
+
+    .new_messages{
+        margin-left: 5px;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    header{
+        height: 45px;
+    }
+
+    .header_content{
+        font-size: 30px;
+        width: 561px;
+    }
+
+    .main_content{
+        margin-top: 36px;
+        width: 561px;
+    }
+
+    .user_container{
+        width: 305px;
+        height: 50px;
+    }
+
+    .title{
+        line-height: 50px;
+        font-size: 14px;
+    }
+
+    .avatars{
+        width:40px;
+        height: 40px;
+        margin-left: 10px;
+        margin-top: 5px;
+    }
+
+    #menu{
+        width: 230px;
+        height: 175px;
+    }
+
+    .menu_button{
+        height: 35px;
+        line-height: 35px;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .messages_container{
+        margin-top: 118px;
+        width: 315px;
+    }
+
+    .message{
+        width: 305px;
+        height: 50px;
+    }
+
+    .message_content{
+        margin-top:0px;
+        margin-left: 86px;
+    }
+
+    .message_text{
+        margin-top: 2px;
+        line-height: 22px;
+    }
+    .sender_avatar{
+        width: 22px;
+        height: 22px;
+    }
+
+    .sender_name{
+        font-size: 14px;
+    }
+
+    .text{
+        margin-left: 30px;
+        font-size: 10px;
+        margin-top: 3px;
+    }
+
+    .messages_container .avatars{
+        margin-left: 36px;
+        margin-top: 5px;
+    }
+
+    .new_messages{
+        margin-left: 5px;
+    }
+}
+@media screen and (max-width: 600px) {
+    header{
+        height: 40px;
+    }
+
+    .header_content{
+        font-size: 27px;
+        width: 472px;
+    }
+
+    .main_content{
+        margin-top: 32px;
+        width: 472px;
+    }
+
+    .user_container{
+        width: 266px;
+        height: 50px;
+    }
+
+    .title{
+        line-height: 50px;
+        font-size: 12px;
+    }
+
+    .avatars{
+        width:40px;
+        height: 40px;
+        margin-left: 6px;
+        margin-top: 5px;
+    }
+
+    #menu{
+        width: 181px;
+        height: 175px;
+    }
+
+    .menu_button{
+        height: 35px;
+        line-height: 35px;
+        text-align: center;
+        font-size: 12px;
+    }
+
+
+
+    .messages_container{
+        margin-top: 105px;
+        width: 276px;
+    }
+
+    .message{
+        width: 266px;
+        height: 50px;
+    }
+
+    .message_content{
+        top:5px;
+        margin-left: 70px;
+    }
+
+    .sender_name{
+        font-size: 12px;
+    }
+
+    .text{
+        left: 10px;
+        font-size: 8px;
+        margin-top:1px;
+    }
+
+    .messages_container .avatars{
+        margin-left: 22px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header{
+        height: 35px;
+    }
+
+    .header_content{
+        font-size: 25px;
+        width: 346px;
+    }
+
+    .main_content{
+        margin-top: 28px;
+        width: 346px;
+    }
+
+    .user_container{
+        width: 212px;
+        height: 35px;
+    }
+
+    .title{
+        line-height: 35px;
+        font-size: 10px;
+    }
+
+    .avatars{
+        width:30px;
+        height: 30px;
+        margin-left: 4px;
+        margin-top: 2px;
+    }
+
+    #menu{
+        width: 109px;
+        height: 125px;
+    }
+
+    .menu_button{
+        height: 25px;
+        line-height: 25px;
+        text-align: center;
+        font-size: 10px;
+    }
+
+    .messages_container{
+        margin-top: 85px;
+        width: 222px;
+    }
+
+    .message{
+        width: 212px;
+        height: 35px;
+    }
+
+    .message_content{
+        top:2px;
+        margin-left: 47px;
+    }
+
+    .message_text{
+        margin-top: 0px;
+        line-height: 18px;
+    }
+    .sender_avatar{
+        width: 18px;
+        height: 18px;
+    }
+
+    .sender_name{
+        font-size: 10px;
+    }
+
+    .text{
+        margin-left: 25px;
+        font-size: 6px;
+    }
+
+    .messages_container .avatars{
+        width: 30px;
+        height: 30px;
+        margin-left: 7px;
+        margin-top: 3px;
+    }
+}
+@media screen and (max-width: 360px) {
+    header{
+        height: 30px;
+    }
+
+    .header_content{
+        font-size: 20px;
+        width: 314px;
+    }
+
+    .main_content{
+        margin-top: 15px;
+        width: 314px;
+    }
+
+    .user_container{
+        width: 185px;
+        height: 35px;
+    }
+
+    .title{
+        line-height: 35px;
+        font-size: 10px;
+    }
+
+    .avatars{
+        width:30px;
+        height: 30px;
+        margin-left: 2px;
+        margin-top: 2px;
+    }
+
+    #menu{
+        width: 109px;
+        height: 125px;
+    }
+
+    .menu_button{
+        height: 25px;
+        line-height: 25px;
+        text-align: center;
+        font-size: 8px;
+    }
+
+    .messages_container{
+        margin-top: 69px;
+        width: 195px;
+    }
+
+    .message{
+        width: 185px;
+        height: 35px;
+    }
+
+    .message_content{
+        top:2px;
+        margin-left: 47px;
+    }
+
+    .message_text{
+        margin-top: 2px;
+        line-height: 18px;
+    }
+
+    .sender_avatar{
+        width: 18px;
+        height: 18px;
+    }
+
+    .sender_name{
+        font-size: 8px;
+    }
+
+    .text{
+        font-size: 6px;
+    }
+
+    .messages_container .avatars{
+        margin-left: 7px;
+        margin-top: 3px;
+    }
+}

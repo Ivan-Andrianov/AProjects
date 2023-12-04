@@ -1,0 +1,459 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+@font-face {
+    font-family: 'Kaushan';
+    src: url("../fonts/Kaushan.ttf");
+}
+
+@font-face{
+    font-family: 'Inter';
+    src: url("../fonts/inter.ttf");
+}
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+}
+
+#main_content{
+    width: 875px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:42px;
+    bottom: 20px;
+    position: relative;
+    font-family: 'Inter';
+}
+
+.news{
+    width: 516px;
+    position: relative;
+    margin-left: 0;
+}
+
+.new{
+    width: 100%;
+    position: relative;
+    box-shadow: 4px 4px 4px 0 rgba(0,0,0,0.25);
+    margin-bottom: 30px;
+}
+
+.topic{
+    background-color: #DFDDDD;
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    position: relative;
+    font-size: 20px;
+    overflow: auto;
+}
+
+.topic p{
+    display: inline-block;
+    line-height: 60px;
+    width: min-content;
+}
+
+.avatars{
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    position: absolute;
+    border: 1px #78A855 solid;
+    display: block;
+    border-radius: 50%;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.content{
+    width: 100%;
+    height: 357px;
+    background-color: #F8F8F8;
+    position: relative;
+}
+
+.interactive_panel{
+    width: 100%;
+    height: 50px;
+    background-color: #DFDDDD;
+    position: relative;
+}
+
+.like,.comment,.repost{
+    cursor: pointer;
+}
+
+.buttons_container{
+    width: max-content;
+    position: absolute;
+    margin-top:7px;
+    margin-left: 301px;
+    font-size: 0;
+
+}
+.interactive_panel img{
+    width: 20px;
+    height: 20px;
+    position: relative;
+    display: inline-block;
+
+}
+
+.interactive_panel button{
+    width: 60px;
+    height: 35px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: #FFCBCB;
+    border-radius: 50px;
+    font-size: 0px;
+    border:none;
+    outline: none;
+}
+
+.news button p{
+    position: relative;
+    display: inline;
+    width: 42%;
+    font-size: 10px;
+}
+
+.interactive_panel button+button{
+    margin-left: 9px;
+}
+.comment_container{
+    width: 100%;
+    background-color: #F8F8F8;
+    border-bottom: black 1px solid;
+    position: relative;
+    overflow: auto;
+    display: none;
+    font-family: 'Inter';
+}
+
+.comment_container p{
+    max-width: 370px;
+    margin-top:15px;
+    margin-left:70px;
+    position: relative;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.comments :last-child{
+    border-bottom: none;
+}
+
+
+.comments_container+.comments_container{
+    border-bottom: 1px black solid;
+}
+
+.like_panel_for_comment{
+    width: 100%;
+    height: 22px;
+    position: absolute;
+    bottom:8px;
+}
+
+.like_for_comment{
+    width: 47px;
+    height: 100%;
+    border-radius: 50px;
+    position: absolute;
+    right: 8px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0;
+    outline: none;
+    border:none;
+    background-color: #FFCBCB;
+}
+
+.like_for_comment img{
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    position: relative;
+}
+
+.like_for_comment p{
+    position: relative;
+    display: inline-block;
+    font-size: 8px;
+    margin:0px;
+    top:0px;
+}
+
+.write_comment_panel{
+    width: 100%;
+    height: 39px;
+    background-color: #F8F8F8;
+    position: relative;
+    overflow: auto;
+}
+
+.send,.emotion{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    display: block;
+    margin-top:10px;
+    outline: none;
+    border:none;
+}
+
+.comment_field{
+    margin-top:8px;
+    display:block;
+    position: absolute;
+    background-color: white;
+    border:none;
+    border-bottom: 1px #79A855 solid;
+    border-radius: 5px;
+    width: 318px;
+    height: 24px;
+    outline: none;
+    padding-left: 5px;
+    margin-left:32px;
+}
+
+.write_comment_panel input+input{
+    margin-left:8px;
+}
+
+.emotion{
+    left: 386px;
+}
+.send{
+    left: 356px;
+}
+
+#menu :last-child{
+    border:none;
+}
+
+.comment_container p{
+    max-width: 385px;
+}
+
+
+@media screen and (max-width: 1024px) {
+
+    .news{
+        width: 460px;
+    }
+
+    .interactive_panel button{
+        width: 52px;
+        height: 30px;
+    }
+
+    .interactive_panel img{
+        width: 17px;
+        height: 17px;
+    }
+
+    .buttons_container{
+        width: 175px;
+        margin-left: 263px;
+        margin-top:10px;
+    }
+
+    .news button p{
+        top: 0px;
+        left: 2px;
+        width: 40%;
+    }
+
+    .comment_container p{
+        max-width: 334px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .news{
+        width: 360px;
+    }
+
+    .buttons_container{
+        margin-left: 163px;
+        margin-top:11px;
+    }
+
+    .content{
+        height: 336px;
+    }
+
+    .comment_container p{
+        font-size: 14px;
+    }
+
+    .like_panel_for_comment p{
+        font-size: 8px;
+    }
+
+    .comment_field{
+        width: 270px;
+        height: 24px;
+        margin-left: 12px;
+    }
+
+    .send .emotion{
+        width: 18px;
+        height: 18px;
+    }
+
+    .emotion{
+        left: 322px;
+    }
+
+    .send{
+        left: 293px;
+    }
+
+    .topic p{
+        font-size: 16px;
+    }
+
+    .comment_container p{
+        max-width: 240px;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+    .news{
+        width: 470px;
+        margin-left: 5px;
+    }
+
+    .buttons_container{
+        margin-left: 273px;
+    }
+
+    .comment_field{
+        width: 369px;
+    }
+
+    .emotion{
+        left: 419px;
+    }
+
+    .send{
+        left: 391px;
+    }
+
+    .buttons_container{
+        margin-left: 273px;
+        margin-top:11px;
+    }
+
+    .comment_container p{
+        max-width: 350px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .news{
+        width: 350px;
+    }
+
+    .content{
+        width: 350px;
+        height: 280px;
+    }
+
+    .buttons_container{
+        margin-left: 153px;
+    }
+
+    .comment_container p{
+        font-size: 12px;
+        max-width: 222px;
+    }
+
+    .like_for_comment p{
+        font-size: 8px;
+    }
+
+    .news button p{
+        top: 0px;
+        left: 2px;
+        width: 36%;
+    }
+
+}
+
+@media screen and (max-width: 360px) {
+
+    header{
+        height: 30px;
+    }
+
+    #header_content{
+        width: 320px;
+        font-size: 20px;
+        line-height: 30px;
+    }
+
+    #header_menu_content{
+        width: 174px;
+    }
+
+    #header_menu_content button{
+        line-height: 30px;
+        font-size: 8px;
+    }
+
+    #header_menu_news_button{
+        margin-left: 140px;
+    }
+
+    #header_menu_messages_button{
+        margin-left: 84px;
+    }
+
+    #header_menu_friends_button{
+        margin-left: 45px;
+    }
+
+    .news{
+        width: 310px;
+    }
+
+    .content{
+        width: 310px;
+        height: 256px;
+    }
+
+    .buttons_container{
+        margin-left: 130px;
+    }
+
+    .comment_container p{
+        font-size: 12px;
+        max-width: 190px;
+    }
+
+    .like_for_comment p{
+        font-size: 8px;
+    }
+
+    .comment_field{
+        width: 214px;
+    }
+
+    .send{
+        left: 243px;
+    }
+
+    .emotion{
+        left: 269px;
+    }
+}
+

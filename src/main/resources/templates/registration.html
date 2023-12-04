@@ -1,43 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link type="text/css" href="css/registration.css" rel="stylesheet">
+    <link type="text/css" href="css/commonLoginAndRegistration.css" rel="stylesheet">
+    <link type="text/css" href="css/login.css" rel="stylesheet">
+    <script src="js/loginAndRegistrationPageJS.js"></script>
+    <script src="js/registrationPageJS.js"></script>
+    <script src="js/loginPageJS.js"></script>
+    <script src="js/commonLibraryJS.js"></script>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=display-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="viewport" content="width=device-width">
+
     <title>Registration</title>
-    <link  rel="stylesheet" type="text/css" href="/css/registrationStyle.css">
 </head>
 <body>
-    <div id="registrationContainer">
-      <div id="containerOfContent">
-          <p id="title">Registration</p>
-          <form method="post" action="/registration">
-              <p>Name*</p>
-              <input class="registrationField" name="name">
-
-              <p>Lastname*</p>
-              <input class="registrationField" name="lastname">
-
-              <p>Login*</p>
-              <input class="registrationField" name="email">
-
-              <p>Password*</p>
-              <input class="registrationField" name="password">
-
-              <p>Repeat password*</p>
-              <input id="rtPassword" class="registrationField">
-
-              <p>GitHub</p>
-              <input class="registrationField" name="git">
-
-              <p>Country</p>
-              <input class="registrationField" name="country">
-
-              <div id="panel">
-                  <input id="submitButton"type="submit" value="Register">
-                  <a href="/login">You have an account</a>
-              </div>
-          </form>
-      </div>
+<div id="registrationContainer">
+    <p id="title">Registration</p>
+    <form id="registrationForm" method="post" action="/registration">
+        <div class="field">
+            <input id="nameField" name="name" class="input" placeholder="Name*">
+            <div class="hint" title="Введите имя">?</div>
+        </div>
+        <div class="field">
+            <input id="lastNameField" name="lastname" class="input" placeholder="Lastname*">
+            <div class="hint"title="Введите фамилию">?</div>
+        </div>
+        <div class="field">
+            <input id="loginField" class="input" name="username" placeholder="Email*">
+            <div class="hint" title="Введите почту">?</div>
+        </div>
+        <div class="field">
+            <input id="passwordField" class="input" name="password" type="password" placeholder="Password*">
+            <div class="hint" title="Введите пароль">?</div>
+        </div>
+        <div class="field">
+            <input id="repeatPasswordField" class="input" type="password" placeholder="Repeat password*">
+            <div class="hint" title="Повторите пароль">?</div>
+        </div>
+        <input id="submitButton" type="submit" value="Sign up">
+    </form>
+    <div id="decoration">
+        <div class="line"></div>
+        or
+        <div class="line"></div>
     </div>
+    <div id="externalAuthenticationPanel">
+        <input type="image" src="pictures/VK.png">
+        <input type="image" src="pictures/Google.png">
+    </div>
+    <a href="/login">Sign in</a>
+</div>
 </body>
 </html>
