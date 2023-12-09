@@ -41,12 +41,12 @@
 
     <div id="gallery">
         <div id="images_gallery_container">
-            <img id="first_image" src="/pictures/user_pictures/0.jpg" class="gallery_image">
-            <img id="second_image" src="/pictures/user_pictures/0.jpg" class="gallery_image">
-            <img id="third_image" src="/pictures/user_pictures/0.jpg" class="gallery_image">
-            <img id="forth_image" src="/pictures/user_pictures/0.jpg" class="gallery_image">
-            <img id="fifth_image" src="/pictures/user_pictures/0.jpg" class="gallery_image">
-            <img id="sixth_image" src="/pictures/user_pictures/0.jpg" class="gallery_image">
+            <img id="first_image" src="/pictures/0.jpg" class="gallery_image">
+            <img id="second_image" src="/pictures/0.jpg" class="gallery_image">
+            <img id="third_image" src="/pictures/0.jpg" class="gallery_image">
+            <img id="forth_image" src="/pictures/0.jpg" class="gallery_image">
+            <img id="fifth_image" src="/pictures/0.jpg" class="gallery_image">
+            <img id="sixth_image" src="/pictures/0.jpg" class="gallery_image">
         </div>
         <button id="show_all_images_button">Показать все</button>
     </div>
@@ -94,11 +94,11 @@
         <div class="interactive_panel">
             <div class="buttons_container">
                 <button class="like">
-                    <img src="images/like.png">
+                    <img src="/pictures/like.png">
                     <p>100k</p>
                 </button>
                 <button class="repost">
-                    <img src="images/repost.png">
+                    <img src="/pictures/repost.png">
                     <p>100k</p>
                 </button>
             </div>
@@ -110,7 +110,7 @@
         <form id="add_photo_form" enctype="multipart/form-data" method="POST" action="/upload/attach_avatar">
             <input id="file_input_photo" name="file" type="file" onchange="file_uploaded()">
             <label class="label_for_file_input" for="file_input_photo">
-                <img class="plus_image" src="/pictures/plus.png">
+                <img class="plus_image" src="/pictures/Plus.png">
             </label>
             <input id="add_photo_window_submit_button" type="submit" value="Прикрепить">
             <p class="uploaded_file_count"></p>
@@ -122,7 +122,7 @@
         <form id="add_news_form" enctype="multipart/form-data" method="post" action="/createNews">
             <input id="file_input_news" name="file" type="file" onchange="file_uploaded()">
             <label class="label_for_file_input"  for="file_input_news">
-                <img class="plus_image" src="/pictures/plus.png">
+                <img class="plus_image" src="/pictures/Plus.png">
             </label>
             <input id="topic_input" name="topic" type="text" placeholder="Тема новости...">
             <input id="add_news_window_submit_button" type="submit" value="Создать">
