@@ -35,6 +35,14 @@ function getUserIdFromURL(){
     return pathname[pathname.length-1];
 }
 
+function over_interactive_panel_button(event){
+    this.style["backgroundColor"]="#FDA2A2";
+}
+
+function out_interactive_panel_button(event){
+    this.style["backgroundColor"] = "#FFCBCB";
+}
+
 function attachReferenceOnMenuButton(){
     let request = new XMLHttpRequest();
     request.open("GET","/getAuthenticatedUserId");
@@ -92,9 +100,11 @@ function showNews(news){
     news_element.appendChild(interactive_panel);
 
     let like_button = document.createElement("button");
+    like_button.addEventListener("mouseover",over_interactive_panel_button);
+    like_button.addEventListener("mouseout",out_interactive_panel_button);
     like_button.className = "like";
     let like_image = document.createElement("img");
-    like_image.src = "/pictures/like.png";
+    like_image.src = "/pictures/Like.png";
     like_button.appendChild(like_image);
     let like_content = document.createElement("p");
     if (news["likes_count"]>=7) like_content.textContent = Math.floor(news["likes_count"]/1000000)+"M";
@@ -104,9 +114,11 @@ function showNews(news){
     buttons_container.appendChild(like_button);
 
     let comments_button = document.createElement("button");
+    comments_button.addEventListener("mouseover",over_interactive_panel_button);
+    comments_button.addEventListener("mouseout",out_interactive_panel_button);
     comments_button.className = "comment";
     let comment_image = document.createElement("img");
-    comment_image.src = "/pictures/comment.png";
+    comment_image.src = "/pictures/Comment.png";
     comments_button.appendChild(comment_image);
     let comment_content = document.createElement("p");
     if (news["comments_count"]>=7) comment_content.textContent = Math.floor(news["comments_count"]/1000000)+"M";
@@ -116,9 +128,11 @@ function showNews(news){
     buttons_container.appendChild(comments_button);
 
     let repost_button = document.createElement("button");
+    repost_button.addEventListener("mouseover",over_interactive_panel_button);
+    repost_button.addEventListener("mouseout",out_interactive_panel_button);
     repost_button.className = "repost";
     let repost_image = document.createElement("img");
-    repost_image.src = "/pictures/repost.png";
+    repost_image.src = "/pictures/Repost.png";
     repost_button.appendChild(repost_image);
     let repost_content = document.createElement("p");
     if (news["reposts_count"]>=7) repost_content.textContent = Math.floor(news["reposts_count"]/1000000)+"M";
@@ -159,7 +173,7 @@ function showNews(news){
         let button_for_comment = document.createElement("button");
         button_for_comment.className = "button_for_comment";
         let like_image = document.createElement("img");
-        like_image.src = "images/like.png";
+        like_image.src = "images/Like.png";
         button_for_comment.appendChild(like_image);
         button_for_comment.appendChild(like_content);
 

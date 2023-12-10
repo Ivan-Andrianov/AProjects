@@ -101,8 +101,11 @@ window.onload = function (){
                 }
             }
 
-            document.getElementById("create_new_button").addEventListener("click",openModelWindow);
-            document.getElementById("create_new_button").addEventListener("click",openAddNewsModelApplication);
+            let create_new_button = document.getElementById("create_new_button");
+            create_new_button.addEventListener("click",openModelWindow);
+            create_new_button.addEventListener("click",openAddNewsModelApplication);
+            create_new_button.addEventListener("mouseover",overMenuButton);
+            create_new_button.addEventListener("mouseout",outMenuButton);
 
 
             let news = user["news"];
@@ -177,6 +180,8 @@ function showFriendsList(user_id){
                 let friends_list = document.getElementById("friends_container");
 
                 let friend_container = document.createElement("div");
+                friend_container.addEventListener("mouseover",overMenuButton);
+                friend_container.addEventListener("mouseout",outMenuButton);
                 friend_container.className = "user";
                 friend_container.onclick = function (){window.location = "/profile/"+friends[friend_index]["id"]}
 

@@ -429,6 +429,7 @@ header{
     border-radius: 5px;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 #add_photo_window_submit_button, #add_news_window_submit_button{
@@ -439,6 +440,7 @@ header{
     position: absolute;
     left: 44px;
     border: 1px #D1CFCF solid;
+    cursor: pointer;
 }
 .plus_image{
     width: 100px;
