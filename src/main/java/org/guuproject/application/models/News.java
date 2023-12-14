@@ -1,7 +1,11 @@
 package org.guuproject.application.models;
 
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class News {
@@ -24,6 +28,11 @@ public class News {
     @OneToMany(fetch = FetchType.EAGER)
     @JoinTable(name="news_comment",joinColumns = @JoinColumn(name="news_id"),inverseJoinColumns = @JoinColumn(name="comment_id"))
     private List<Comment> comments;
+
+    @ElementCollection
+    @CollectionTable(name = "news_like",joinColumns = @JoinColumn(name = "news_id"))
+    @Column(name = "user_id")
+    private Set<Long> likes = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -67,6 +76,22 @@ public class News {
 
     public void setWriter(User writer) {
         this.writer = writer;
+    }
+
+    public Image getImage() {
+        return image;
+    }
+
+    public void setImage(Image image) {
+        this.image = image;
+    }
+
+    public Set<Long> getLikes() {
+        return likes;
+    }
+
+    public void setLikes(Set<Long> likes) {
+        this.likes = likes;
     }
 
 }

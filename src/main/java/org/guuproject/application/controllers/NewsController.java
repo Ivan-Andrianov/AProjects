@@ -1,22 +1,27 @@
 package org.guuproject.application.controllers;
 
+import org.guuproject.application.models.Comment;
 import org.guuproject.application.models.Image;
 import org.guuproject.application.models.News;
 import org.guuproject.application.models.User;
+import org.guuproject.application.repositories.CommentRepository;
 import org.guuproject.application.repositories.ImageRepository;
 import org.guuproject.application.repositories.NewsRepository;
 import org.guuproject.application.repositories.UserRepository;
 import org.guuproject.application.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Controller
 public class NewsController {
@@ -25,13 +30,15 @@ public class NewsController {
     public UserRepository userRepository;
     public UserService userService;
     public NewsRepository newsRepository;
+    public CommentRepository commentRepository;
 
     @Autowired
-    public NewsController(ImageRepository imageRepository, UserRepository userRepository, UserService userService, NewsRepository newsRepository) {
+    public NewsController(ImageRepository imageRepository, UserRepository userRepository, UserService userService, NewsRepository newsRepository, CommentRepository commentRepository) {
         this.imageRepository = imageRepository;
         this.userRepository = userRepository;
         this.userService = userService;
         this.newsRepository = newsRepository;
+        this.commentRepository = commentRepository;
     }
 
     @PostMapping("/createNews")
@@ -57,6 +64,7 @@ public class NewsController {
                 News news = new News();
                 news.setTopic(topic);
                 news.setWriter(authenticatedUser);
+                news.setImage(image);
                 newsRepository.save(news);
                 authenticatedUser.getNews().add(news);
                 userRepository.save(authenticatedUser);
@@ -65,5 +73,31 @@ public class NewsController {
             }
         }
         return "redirect:/profile/"+userService.getAuthenticatedUserId();
+    }
+
+    @PostMapping("/createComment/{newsId}/{text}")
+    @ResponseBody
+    public User createComment(@PathVariable Long newsId, @PathVariable String text){
+        News news = newsRepository.findById(newsId).get();
+        Comment comment = new Comment();
+        User writer = userRepository.findUserById(userService.getAuthenticatedUserId());
+        comment.setSender(writer);
+        comment.setMessage(text);
+        commentRepository.save(comment);
+        news.getComments().add(comment);
+        newsRepository.save(news);
+        return writer;
+    }
+
+    @PostMapping("/createLike/{newsId}")
+    @ResponseBody
+    public Boolean createLike(@PathVariable Long newsId){
+        News news = newsRepository.findById(newsId).get();
+        if (news.getLikes().contains(userService.getAuthenticatedUserId())) return false;
+        else {
+            news.getLikes().add(userService.getAuthenticatedUserId());
+            newsRepository.save(news);
+            return true;
+        }
     }
 }

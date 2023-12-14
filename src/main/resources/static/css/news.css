@@ -45,13 +45,11 @@
     text-align: center;
     position: relative;
     font-size: 20px;
-    overflow: auto;
 }
 
 .topic p{
     display: inline-block;
     line-height: 60px;
-    width: min-content;
 }
 
 .avatars{
@@ -71,6 +69,9 @@
     height: 357px;
     background-color: #F8F8F8;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .interactive_panel{
@@ -121,8 +122,24 @@
     font-size: 10px;
 }
 
+.news_image{
+    width: 222px;
+    height: 301px;
+    object-fit: cover;
+    display: block;
+    bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    border: #A6A2A2 1px solid;
+}
+
 .interactive_panel button+button{
     margin-left: 9px;
+}
+
+.comments{
+    display: none;
 }
 .comment_container{
     width: 100%;
@@ -130,7 +147,6 @@
     border-bottom: black 1px solid;
     position: relative;
     overflow: auto;
-    display: none;
     font-family: 'Inter';
 }
 
@@ -141,6 +157,7 @@
     position: relative;
     font-size: 16px;
     margin-bottom: 30px;
+    word-wrap: break-word;
 }
 
 .comments :last-child{
