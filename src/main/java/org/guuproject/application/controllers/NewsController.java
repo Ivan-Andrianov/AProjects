@@ -11,16 +11,16 @@ import org.guuproject.application.repositories.UserRepository;
 import org.guuproject.application.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Set;
 
 @Controller
@@ -39,6 +39,27 @@ public class NewsController {
         this.userService = userService;
         this.newsRepository = newsRepository;
         this.commentRepository = commentRepository;
+    }
+
+    @RequestMapping("/news")
+    public String getNewsPage(){
+        return "news";
+    }
+
+    @GetMapping("/getNews")
+    @ResponseBody
+    public List<News> getNews(){
+        List<News> news_list = new ArrayList<>();
+
+        User user = userRepository.findUserById(userService.getAuthenticatedUserId());
+        List<User> friends = user.getFriends();
+
+        for (User friend:friends){
+            news_list.addAll(friend.getNews());
+        }
+
+        news_list.sort(Comparator.comparing(News::getDate_of_creating));
+        return news_list;
     }
 
     @PostMapping("/createNews")
@@ -65,6 +86,8 @@ public class NewsController {
                 news.setTopic(topic);
                 news.setWriter(authenticatedUser);
                 news.setImage(image);
+                news.setDate_of_creating(LocalDateTime.now());
+
                 newsRepository.save(news);
                 authenticatedUser.getNews().add(news);
                 userRepository.save(authenticatedUser);

@@ -59,7 +59,7 @@ function attachReferenceOnMenuButton(){
                 window.location = "/messages/" + authenticated_user_id
             });
             document.getElementById("news_button").addEventListener("click", function () {
-                window.location = "/news/"
+                window.location = "/news"
             });
             document.getElementById("setting_button").addEventListener("click", function () {
                 window.location = "/settings/"
@@ -142,12 +142,13 @@ function showNews(news){
     let repost_content = document.createElement("p");
     if (news["reposts_count"]>=7) repost_content.textContent = Math.floor(news["reposts_count"]/1000000)+"M";
     else if (news["reposts_count"]>=4) repost_content.textContent = Math.floor(news["reposts_count"]/1000)+"K";
-    else repost_content.textContent = news["reposts_count"];
+    else repost_content.textContent = "0"
     repost_button.appendChild(repost_content);
     buttons_container.appendChild(repost_button);
 
 
     let comments = document.createElement("div");
+    comments.style["display"] = "none";
     comments["id"] = news["id"];
     comments.className = "comments";
 

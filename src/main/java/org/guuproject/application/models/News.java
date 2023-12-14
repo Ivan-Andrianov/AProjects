@@ -2,6 +2,7 @@ package org.guuproject.application.models;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -14,8 +15,7 @@ public class News {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String topic;
-    private int likes_count;
-    private int reposts_count;
+    private LocalDateTime date_of_creating;
 
     @OneToOne
     @JoinColumn(name="writer_id")
@@ -46,28 +46,8 @@ public class News {
         this.topic = topic;
     }
 
-    public int getLikes_count() {
-        return likes_count;
-    }
-
-    public void setLikes_count(int likes_count) {
-        this.likes_count = likes_count;
-    }
-
-    public int getReposts_count() {
-        return reposts_count;
-    }
-
-    public void setReposts_count(int reposts_count) {
-        this.reposts_count = reposts_count;
-    }
-
     public List<Comment> getComments() {
         return comments;
-    }
-
-    public void setComments(List<Comment> comments) {
-        this.comments = comments;
     }
 
     public User getWriter() {
@@ -90,8 +70,11 @@ public class News {
         return likes;
     }
 
-    public void setLikes(Set<Long> likes) {
-        this.likes = likes;
+    public LocalDateTime getDate_of_creating() {
+        return date_of_creating;
     }
 
+    public void setDate_of_creating(LocalDateTime date_of_creating) {
+        this.date_of_creating = date_of_creating;
+    }
 }
