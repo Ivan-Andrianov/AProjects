@@ -9,19 +9,19 @@ window.onload = function (){
     document.getElementById("user_information_container_button_1").addEventListener("mouseover",mouseIsOverButton);
     document.getElementById("user_information_container_button_1").addEventListener("mouseout",mouseIsOutButton);
     document.getElementById("user_information_container_button_1").addEventListener("mouseout",mouseIsOutButton);
-    document.getElementById("show_all_images_button").addEventListener("click",openModelWindow);
+    document.getElementById("show_all_images_button").addEventListener("click",openModuleWindow);
     document.getElementById("show_all_images_button").addEventListener("click",openGalleryModelApplication);
 
     let images = document.getElementsByTagName("img");
     for (let image_index in images){
         if (images[image_index].addEventListener==null || (images[image_index].getAttribute("id")!=="avatar" && images[image_index].className!=="user_image" && images[image_index].className!="gallery_image")) continue;
-        images[image_index].addEventListener("click",openModelWindow);
-        images[image_index].addEventListener("click",openUserPictureModelApplication);
+        images[image_index].addEventListener("click",openModuleWindow);
+        images[image_index].addEventListener("click",openUserPictureModuleApplication);
     }
 
     let close_buttons = document.getElementsByClassName("close");
     for (let button_index in close_buttons){
-        if (close_buttons[button_index].addEventListener!=null) close_buttons[button_index].addEventListener("click",closeModelWindow);
+        if (close_buttons[button_index].addEventListener!=null) close_buttons[button_index].addEventListener("click",closeModuleWindow);
     }
 
     let request = new XMLHttpRequest();
@@ -76,7 +76,7 @@ window.onload = function (){
             if (request.getResponseHeader("owner")==="true"){
                 let change_avatar_button = document.getElementById("user_information_container_button_1");
                 change_avatar_button.textContent = "Change avatar";
-                document.getElementById("user_information_container_button_1").addEventListener("click",openModelWindow);
+                document.getElementById("user_information_container_button_1").addEventListener("click",openModuleWindow);
                 change_avatar_button.addEventListener('click',openAddPictureModelApplication)
             }else{
                 document.getElementById("create_new_button").style["display"] = "none";
@@ -102,7 +102,7 @@ window.onload = function (){
             }
 
             let create_new_button = document.getElementById("create_new_button");
-            create_new_button.addEventListener("click",openModelWindow);
+            create_new_button.addEventListener("click",openModuleWindow);
             create_new_button.addEventListener("click",openAddNewsModelApplication);
             create_new_button.addEventListener("mouseover",overMenuButton);
             create_new_button.addEventListener("mouseout",outMenuButton);
@@ -129,15 +129,16 @@ function mouseIsOutButton(event){
     event.currentTarget.style["border"] = "1px solid #D1CFCF";
 }
 
-function openModelWindow(){
-    closeAllModuleApplication();
-    document.getElementById("modal").style["display"] = "block";
-}
-
-function closeModelWindow(){
+function closeModuleWindow(){
     closeAllModuleApplication()
     document.getElementById("modal").style["display"] = "none";
 }
+
+function openModuleWindow(){
+    closeModuleWindow();
+    document.getElementById("modal").style["display"] = "block";
+}
+
 
 function closeAllModuleApplication(){
     document.getElementById("modal").children[1].style["display"]="none";
@@ -147,10 +148,11 @@ function closeAllModuleApplication(){
 }
 
 function openGalleryModelApplication(){
+    loadUserImages(getUserIdFromURL());
     document.getElementById("all_pictures_container").style["display"]="block";
 }
 
-function openUserPictureModelApplication(event){
+function openUserPictureModuleApplication(event){
     document.getElementById("picture_container").style["display"]="block";
     document.getElementById("single_user_picture").src = event.currentTarget["src"];
 }
@@ -219,4 +221,25 @@ function add_friend(){
 
 function file_uploaded(){
     document.getElementsByClassName("uploaded_file_count")[0].textContent = "1 file";
+}
+
+function loadUserImages(user_id){
+    let request = new XMLHttpRequest();
+    request.open("GET","/getUserImages/"+user_id);
+
+    request.onreadystatechange = function (){
+        if (request.readyState==4){
+            let images = JSON.parse(request.responseText);
+            let images_container = document.getElementById("images_container");
+            images_container.innerHTML = "";
+
+            for (let image_index in images){
+                let image = document.createElement("img");
+                image.className = "user_image";
+                image.src = images[image_index]["path"];
+                images_container.appendChild(image);
+            }
+        }
+    }
+    request.send();
 }

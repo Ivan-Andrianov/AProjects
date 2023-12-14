@@ -10,7 +10,7 @@ window.onload=function (){
     let userId = getUserIdFromURL()
     let request = new XMLHttpRequest();
     request.onreadystatechange = function (){
-        if (request.readyState===3) {
+        if (request.readyState==4) {
             let user = JSON.parse(request.responseText);
             showUser(user);
             showFriends(user["id"]);

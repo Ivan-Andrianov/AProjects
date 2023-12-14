@@ -246,8 +246,6 @@ function create_like(){
         if (request.readyState === 4){
             if (request.responseText.length==4){
                 show_like_count(parseInt(like_button.textContent)+1,like_button)
-            }else{
-                return;
             }
         }
     }

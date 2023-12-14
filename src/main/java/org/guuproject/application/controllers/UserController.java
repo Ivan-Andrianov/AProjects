@@ -4,6 +4,7 @@ package org.guuproject.application.controllers;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.servlet.http.HttpServletResponse;
 import org.guuproject.application.models.Chat;
+import org.guuproject.application.models.Image;
 import org.guuproject.application.models.User;
 import org.guuproject.application.repositories.ChatRepository;
 import org.guuproject.application.repositories.UserRepository;
@@ -87,6 +88,12 @@ public class UserController {
     @GetMapping("/getUserChats/{id}")
     public List<Chat> getUserChats(@PathVariable("id") Long user_id,HttpServletResponse response){
         return userRepository.findUserById(user_id).getChats();
+    }
+
+    @ResponseBody
+    @GetMapping("/getUserImages/{user_id}")
+    public List<Image> getUserImages(@PathVariable Long user_id){
+        return userRepository.findUserById(user_id).getImages();
     }
 
     @ResponseBody
