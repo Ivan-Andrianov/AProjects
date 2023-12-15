@@ -29,7 +29,7 @@ public class News {
     @JoinTable(name="news_comment",joinColumns = @JoinColumn(name="news_id"),inverseJoinColumns = @JoinColumn(name="comment_id"))
     private List<Comment> comments;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "news_like",joinColumns = @JoinColumn(name = "news_id"))
     @Column(name = "user_id")
     private Set<Long> likes = new HashSet<>();
@@ -37,6 +37,8 @@ public class News {
     public Long getId() {
         return id;
     }
+
+    public void setId(Long id){this.id = id;}
 
     public String getTopic() {
         return topic;

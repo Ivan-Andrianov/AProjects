@@ -22,10 +22,4 @@ public class ApplicationApplication {
 		SpringApplication.run(ApplicationApplication.class, args);
 	}
 
-
-	/*@Bean
-	public MultipartConfigElement multipartConfigElement(){
-		factory = new MultipartConfigElement("");
-		factory.set
-	}*/
 }

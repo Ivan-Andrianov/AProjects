@@ -26,33 +26,26 @@ public class User implements UserDetails {
     @Column(nullable = false,unique = true)
     private Long id;
     private String username;
-    private String phone_number;
     private String name;
     private String lastname;
     private boolean active;
     private Integer age;
-
     @Column(length = 1000)
     private String password;
-
     @Enumerated(EnumType.STRING)
     private Role role;
-    private LocalDateTime date_of_created;//necessary
+    private LocalDateTime date_of_created;
 
     @JsonBackReference
     @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinTable(name="friendship",joinColumns = @JoinColumn(name="user_id"),
             inverseJoinColumns = @JoinColumn(name="friend_id"))
     private List<User> friends = new ArrayList<>();
-    private String git;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="avatar_id")
     private Image avatar;
     private String country;
-
-    @Enumerated(EnumType.STRING)
-    private Status status;
 
     @ManyToMany
     @JsonBackReference
@@ -118,14 +111,6 @@ public class User implements UserDetails {
         this.username = email;
     }
 
-    public String getPhone_number() {
-        return phone_number;
-    }
-
-    public void setPhone_number(String phoneNumber) {
-        this.phone_number = phoneNumber;
-    }
-
     public String getName() {
         return name;
     }
@@ -173,16 +158,9 @@ public class User implements UserDetails {
     public void setFriendsId(List<User> friends) {
         this.friends = friends;
     }
+
     public List<User> getFriends() {
         return friends;
-    }
-
-    public String getGit() {
-        return git;
-    }
-
-    public void setGit(String gitHub) {
-        this.git = gitHub;
     }
 
     public Image getAvatar() {
@@ -201,24 +179,12 @@ public class User implements UserDetails {
         this.country = country;
     }
 
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
-    }
-
     public void setFriends(List<User> parentFriends) {
         this.friends = parentFriends;
     }
 
     public List<Chat> getChats() {
         return chats;
-    }
-
-    public void setChats(List<Chat> chats) {
-        this.chats = chats;
     }
 
     public Integer getAge() {

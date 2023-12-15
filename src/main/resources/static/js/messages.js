@@ -1,12 +1,11 @@
 window.onload = function (){
-    attachReferenceOnMenuButton();
     let menu_buttons = document.getElementsByClassName("menu_button");
     for (let button_index in menu_buttons){
         if (menu_buttons[button_index].addEventListener==null) continue;
         menu_buttons[button_index].addEventListener("mouseover",overMenuButton);
         menu_buttons[button_index].addEventListener("mouseout",outMenuButton);
     }
-
+    attachReferenceOnMenuButton();
     let request_for_user_information = new XMLHttpRequest();
 
     request_for_user_information.onreadystatechange = async function(){
@@ -15,7 +14,8 @@ window.onload = function (){
             let user_container = document.getElementsByClassName("user_container")[0];
             let user_avatar = document.createElement("img");
             user_avatar.className = "avatars";
-            user_avatar.src = user["avatar"]["path"];
+            if (user["avatar"]) user_avatar.src = user["avatar"]["path"];
+            else user_avatar.src = "/pictures/0.jpg";
             let title = document.createElement("p");
             title.className = "title";
             title.textContent = user["name"]+" "+user["lastname"];
@@ -48,7 +48,7 @@ window.onload = function (){
                 avatar.className = "avatars";
 
                 if (receiver["avatar"]) avatar.src = receiver["avatar"]["path"];
-                else avatar.src = "/pictures/user_pictures/0.jpg";
+                else avatar.src = "/pictures/0.jpg";
                 let message_content = document.createElement("div");
                 message_content.className = "message_content";
                 let sender_name = document.createElement("p");
@@ -58,7 +58,8 @@ window.onload = function (){
                 message_text.className = "message_text";
                 let sender_avatar = document.createElement("img");
                 sender_avatar.className = "sender_avatar";
-                sender_avatar.src = last_message["sender"]["avatar"]["path"];
+                if (last_message["sender"]["avatar"]) sender_avatar.src = last_message["sender"]["avatar"]["path"];
+                else sender_avatar.src = "/pictures/0.jpg";
                 let text = document.createElement("p");
                 text.className = "text";
                 text.textContent = last_message["text"].substr(0,20);

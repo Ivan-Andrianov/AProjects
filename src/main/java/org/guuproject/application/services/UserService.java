@@ -60,7 +60,6 @@ public class UserService {
             user.getFriends().add(friend);
             friend.getFriends().add(user);
             Chat chat = new Chat();
-            chat.set_group(false);
             chatRepository.save(chat);
             response.addHeader("chat_id",chat.getId().toString());
             userRepository.flush();

@@ -26,7 +26,7 @@ function showUser(user){
     let user_container = document.getElementById("main_user_container");
     let user_avatar = document.createElement("img");
     user_avatar.setAttribute("class","avatars");
-    user_avatar.setAttribute("src",user["avatar"]["path"]);
+    user_avatar.src = user["avatar"]?user["avatar"]["path"]:"/pictures/0.jpg";
     let user_name = document.createElement("p");
     user_name.setAttribute("class","name");
     user_name.textContent = user["name"].concat(" ",user["lastname"]);

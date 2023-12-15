@@ -12,13 +12,6 @@ window.onload = function (){
     document.getElementById("show_all_images_button").addEventListener("click",openModuleWindow);
     document.getElementById("show_all_images_button").addEventListener("click",openGalleryModelApplication);
 
-    let images = document.getElementsByTagName("img");
-    for (let image_index in images){
-        if (images[image_index].addEventListener==null || (images[image_index].getAttribute("id")!=="avatar" && images[image_index].className!=="user_image" && images[image_index].className!="gallery_image")) continue;
-        images[image_index].addEventListener("click",openModuleWindow);
-        images[image_index].addEventListener("click",openUserPictureModuleApplication);
-    }
-
     let close_buttons = document.getElementsByClassName("close");
     for (let button_index in close_buttons){
         if (close_buttons[button_index].addEventListener!=null) close_buttons[button_index].addEventListener("click",closeModuleWindow);
@@ -28,12 +21,11 @@ window.onload = function (){
     request.open("GET","/getUser/"+getUserIdFromURL());
 
     request.onreadystatechange = async function (){
-
         if (request.readyState==4){
             let user = JSON.parse(request.responseText);
             let avatar = document.getElementById("avatar");
             if (user["avatar"]) avatar.src = user["avatar"]["path"];
-            else avatar.src = "/pictures/user_pictures/0.jpg";
+            else avatar.src = "/pictures/0.jpg";
             let name = document.getElementsByClassName("name")[0];
             name.textContent = user["name"]+" "+user["lastname"];
             let age = document.getElementById("age");
@@ -43,7 +35,6 @@ window.onload = function (){
             let status = document.getElementById("status");
             if (user["status"]) status.textContent = "Статус: "+user["status"];
             let images = user["images"];
-
             if (user["images"]!=undefined) {
                 for (let i = 1; i <= 6; i++) {
                     if (images.length - i < 0) break;
@@ -71,7 +62,6 @@ window.onload = function (){
                     }
                 }
             }
-
 
             if (request.getResponseHeader("owner")==="true"){
                 let change_avatar_button = document.getElementById("user_information_container_button_1");
@@ -107,19 +97,15 @@ window.onload = function (){
             create_new_button.addEventListener("mouseover",overMenuButton);
             create_new_button.addEventListener("mouseout",outMenuButton);
 
-
             let news = user["news"];
             for (let news_index in news){
                 showNews(news[news_index]);
             }
         }
     }
-
     request.send()
-
     showFriendsList(getUserIdFromURL());
 }
-
 
 function mouseIsOverButton(event){
     event.currentTarget.style["border"] = "1px solid #B8B6B6";
@@ -138,7 +124,6 @@ function openModuleWindow(){
     closeModuleWindow();
     document.getElementById("modal").style["display"] = "block";
 }
-
 
 function closeAllModuleApplication(){
     document.getElementById("modal").children[1].style["display"]="none";
@@ -165,33 +150,24 @@ function openAddNewsModelApplication(){
     document.getElementById("add_news_window").style["display"] = "block";
 }
 
-function overMenuButton(event){
-
-}
-
 function showFriendsList(user_id){
-
     let request = new XMLHttpRequest();
     let friends;
     request.open("GET","/getFriends/"+user_id);
-
     request.onreadystatechange = function (){
         if (request.readyState == 4){
             friends = JSON.parse(request.responseText);
             for (let friend_index in friends){
                 let friends_list = document.getElementById("friends_container");
-
                 let friend_container = document.createElement("div");
                 friend_container.addEventListener("mouseover",overMenuButton);
                 friend_container.addEventListener("mouseout",outMenuButton);
                 friend_container.className = "user";
                 friend_container.onclick = function (){window.location = "/profile/"+friends[friend_index]["id"]}
-
                 let avatar = document.createElement("img");
                 avatar.className = "user_avatar";
                 if (friends[friend_index]["avatar"]) avatar.src = friends[friend_index]["avatar"]["path"];
-                else avatar.src = "/pictures/user_pictures/0.jpg";
-
+                else avatar.src = "/pictures/0.jpg";
                 let name = document.createElement("p");
                 name.textContent = friends[friend_index]["name"];
                 name.className = "user_name";
@@ -202,20 +178,6 @@ function showFriendsList(user_id){
             }
         }
     }
-
-    request.send();
-}
-
-function add_friend(){
-    let request = new XMLHttpRequest();
-    request.open("POST","/addFriend/"+getUserIdFromURL());
-
-    request.onreadystatechange = function(){
-        let button = document.getElementById("user_information_container_button_1");
-        button.textContent = "Write message";
-        button.onclick = function (){window.location = "/chat/"+request.getResponseHeader("chat_id")}
-    }
-
     request.send();
 }
 
@@ -226,7 +188,6 @@ function file_uploaded(){
 function loadUserImages(user_id){
     let request = new XMLHttpRequest();
     request.open("GET","/getUserImages/"+user_id);
-
     request.onreadystatechange = function (){
         if (request.readyState==4){
             let images = JSON.parse(request.responseText);

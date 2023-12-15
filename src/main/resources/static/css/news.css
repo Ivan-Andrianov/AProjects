@@ -28,7 +28,7 @@
 .news{
     width: 516px;
     position: relative;
-    margin-left: 0;
+    margin-left: 5px;
 }
 
 .new{
@@ -247,10 +247,6 @@
     left: 356px;
 }
 
-#menu :last-child{
-    border:none;
-}
-
 .comment_container p{
     max-width: 385px;
 }
@@ -401,40 +397,14 @@
         width: 36%;
     }
 
+    .news_image{
+        width: 170px;
+        height: 210px;
+    }
+
 }
 
 @media screen and (max-width: 360px) {
-
-    header{
-        height: 30px;
-    }
-
-    #header_content{
-        width: 320px;
-        font-size: 20px;
-        line-height: 30px;
-    }
-
-    #header_menu_content{
-        width: 174px;
-    }
-
-    #header_menu_content button{
-        line-height: 30px;
-        font-size: 8px;
-    }
-
-    #header_menu_news_button{
-        margin-left: 140px;
-    }
-
-    #header_menu_messages_button{
-        margin-left: 84px;
-    }
-
-    #header_menu_friends_button{
-        margin-left: 45px;
-    }
 
     .news{
         width: 310px;
@@ -468,6 +438,11 @@
 
     .emotion{
         left: 269px;
+    }
+
+    .news_image{
+        width: 150px;
+        height: 195px;
     }
 }
 

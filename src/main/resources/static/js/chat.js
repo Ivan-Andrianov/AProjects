@@ -6,7 +6,6 @@ let chat;
 
 window.onload = function () {
     attachReferenceOnMenuButton();
-    document.getElementsByClassName("searching_input")[0].addEventListener("keyup",showSortedFriendsList);
     document.getElementsByClassName("message_input")[0].addEventListener("keyup",send_message);
 
     let menu_buttons = document.getElementsByClassName("menu_button");
@@ -31,7 +30,7 @@ window.onload = function () {
                 if (chat["listOfMessages"][message]["sender"]["avatar"]) {
                     avatar.src = chat["listOfMessages"][message]["sender"]["avatar"]["path"];
                 }else{
-                    avatar.src = "/pictures/user_pictures/0.jpg";
+                    avatar.src = "/pictures/0.jpg";
                 }
                 let text = document.createElement("div");
                 text.textContent = chat["listOfMessages"][message]["text"];
@@ -109,54 +108,6 @@ function getChatIdFromURL(){
     return url[url.length-1];
 }
 
-function showSortedFriendsList(event){
-    let request = new XMLHttpRequest();
-
-    if (!(event.keyCode>=48 && event.keyCode<=57
-        || event.keyCode>=65 && event.keyCode<=90
-        || event.keyCode>=97 && event.keyCode<=122
-        || event.keyCode==8 && document.getElementsByClassName("searching_input")[0]["value"]!=""))
-        return;
-
-    request.onreadystatechange = async function (){
-        if (request.readyState===4) {
-            let receiver_searching_window = document.getElementsByClassName("receiver_searching_window")[0];
-            let searching_panel = document.getElementsByClassName("searching_panel")[0];
-            let result_panel = document.getElementsByClassName("result_panel")[0];
-            if (result_panel!=null) receiver_searching_window.removeChild(result_panel);
-            if (request.responseText==="") return;
-            let sorted_friends = JSON.parse(request.responseText);
-            result_panel = document.createElement("div");
-            result_panel.className = "result_panel";
-
-            for (let i in sorted_friends){
-                let friend = sorted_friends[i];
-
-                let avatar = document.createElement("img");
-                avatar.className = "user_avatar";
-                avatar.src = friend["avatar"]["path"];
-
-                let name = document.createElement("p");
-                name.className = "user_name";
-                name.textContent = friend["name"]+" "+friend["lastname"];
-
-                let user_result_container = document.createElement("div");
-                user_result_container.className = "user";
-
-                user_result_container.appendChild(avatar);
-                user_result_container.appendChild(name);
-                user_result_container.addEventListener("mouseover",overMenuButton);
-                user_result_container.addEventListener("mouseout",outMenuButton);
-                result_panel.appendChild(user_result_container);
-            }
-
-            receiver_searching_window.insertBefore(result_panel,searching_panel);
-        }
-    }
-    let name = document.getElementsByClassName("searching_input")[0]["value"];
-    request.open("GET","/getSortedFriendsList?id="+user_id+"&name="+name);
-    request.send();
-}
 
 
 

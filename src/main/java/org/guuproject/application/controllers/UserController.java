@@ -102,7 +102,6 @@ public class UserController {
         User user_1 = userRepository.findUserById(userService.getAuthenticatedUserId());
         User user_2 = userRepository.findUserById(user_id);
         Chat chat = new Chat();
-        chat.set_group(false);
         chat.setMembers(List.of(user_1,user_2));
         chatRepository.save(chat);
         jdbcTemplate.execute(String.format("insert into friendship values(%d,%d,%d)",user_1.getId(),user_2.getId(),chat.getId()));

@@ -16,7 +16,6 @@ function outSubmitButton(){
     this.style["backgroundColor"] = "#648359"
 }
 
-//изменяет стиль границы поля при неправильном заполнении
 function errorOccurrence(field){
     field.style["borderBottom"] = "red 2px solid";
 }
@@ -49,21 +48,19 @@ function attachReferenceOnMenuButton(){
     request.onreadystatechange = function (){
         if (request.readyState==4) {
             let authenticated_user_id = parseInt(request.responseText);
-            document.getElementById("profile_button").addEventListener("click", function () {
-                window.location = "/"
-            });
-            document.getElementById("friend_button").addEventListener("click", function () {
-                window.location = "/friends/" + authenticated_user_id
-            });
-            document.getElementById("messages_button").addEventListener("click", function () {
-                window.location = "/messages/" + authenticated_user_id
-            });
-            document.getElementById("news_button").addEventListener("click", function () {
-                window.location = "/news"
-            });
-            document.getElementById("setting_button").addEventListener("click", function () {
-                window.location = "/settings/"
-            });
+            document.getElementById("profile_button").addEventListener("click", function () {window.location = "/"});
+            if (document.getElementById("header_menu_profile_button")) document.getElementById("header_menu_profile_button").addEventListener("click",function (){window.location = "/"});
+
+            document.getElementById("friend_button").addEventListener("click", function () {window.location = "/friends/" + authenticated_user_id});
+            if (document.getElementById("header_menu_friends_button")) document.getElementById("header_menu_friends_button").addEventListener("click",function (){window.location = "/friends/"+authenticated_user_id});
+
+            document.getElementById("messages_button").addEventListener("click", function () {window.location = "/messages/" + authenticated_user_id});
+            if (document.getElementById("header_menu_messages_button")) document.getElementById("header_menu_messages_button").addEventListener("click",function (){window.location = "/messages/"+authenticated_user_id});
+
+            document.getElementById("news_button").addEventListener("click", function () {window.location = "/news"});
+            if (document.getElementById("header_menu_news_button")) document.getElementById("header_menu_news_button").addEventListener("click",function (){window.location = "/news"});
+
+            if (document.getElementById("setting_button")) document.getElementById("setting_button").addEventListener("click", function () {window.location = "/settings"});
         }
     }
     request.send();
@@ -96,7 +93,6 @@ function showNews(news){
     news_img.className = "news_image";
     news_img.src = news["image"]["path"];
     content.appendChild(news_img);
-
 
     let interactive_panel = document.createElement("div");
     interactive_panel.className = "interactive_panel";
@@ -146,7 +142,6 @@ function showNews(news){
     repost_button.appendChild(repost_content);
     buttons_container.appendChild(repost_button);
 
-
     let comments = document.createElement("div");
     comments.style["display"] = "none";
     comments["id"] = news["id"];
@@ -159,7 +154,7 @@ function showNews(news){
         comment_container.className = "comment_container";
         let avatar = document.createElement("img");
         avatar.className = "avatars";
-        avatar.src = comment["sender"]["avatar"]["path"];
+        avatar.src = comment["sender"]["avatar"]?comment["sender"]["avatar"]["path"]:"/pictures/0.jpg";
         comment_container.appendChild(avatar);
         let text = document.createElement("p");
         text.textContent = comment["message"];

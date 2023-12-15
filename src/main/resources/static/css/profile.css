@@ -50,7 +50,7 @@ header{
 
 #user_information_container{
     position: relative;
-    margin-top: 5px;
+    top: 5px;
     margin-left: 5px;
     width: 512px;
     height: 304px;
@@ -102,6 +102,10 @@ header{
     font-size: 14px;
     border-bottom: 1px #79A855 solid;
     line-height: 38px;
+}
+
+#menu :last-child{
+    border:none;
 }
 
 #friends_container{
@@ -192,7 +196,6 @@ header{
     margin:5px;
     background-color: gray;
     border: #D1CFCF solid 1px;
-    cursor: pointer;
 }
 
 #first_image{
@@ -1056,7 +1059,7 @@ header{
     }
 
     #header_content{
-        width: 314px;
+        width: 320px;
         font-size: 20px;
         line-height: 30px;
     }
@@ -1066,8 +1069,8 @@ header{
     }
 
     #header_menu_content button{
-        line-height: 35px;
-        font-size: 10px;
+        line-height: 30px;
+        font-size: 8px;
     }
 
     #header_menu_news_button{

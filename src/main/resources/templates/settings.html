@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Settings</title>
+    <link rel="stylesheet" href="/css/settings.css">
+    <link rel="stylesheet" href="/css/profile.css">
+    <script src="/js/settings.js"></script>
+    <script src="/js/commonLibraryJS.js"></script>
+</head>
+<body>
+<header>
+  <div id="header_content">
+    Demetra's
+    <div id="header_menu_content">
+      <button id="header_menu_profile_button" type="button">Профиль</button>
+      <button id="header_menu_friends_button" type="button">Друзья</button>
+      <button id="header_menu_messages_button" type="button">Сообщения</button>
+      <button id="header_menu_news_button" type="button">Новости</button>
+    </div>
+  </div>
+</header>
+
+    <div id="main_settings_container">
+        <form>
+            <div>
+                <p>Имя:</p><input id="name_field" type="text" class="settings_field">
+            </div>
+            <div>
+                <p>Фамилия:</p><input id="lastname_field" type="text" class="settings_field">
+            </div>
+            <div>
+                <p>Возраст:</p><input id="age_field" type="text" class="settings_field">
+            </div>
+            <div>
+                <p>Страна:</p><input id="country_field" type="text" class="settings_field">
+            </div>
+            <input id="submit_settings_button" type="submit" value="Сохранить">
+        </form>
+
+
+
+        <div id="menu">
+            <div id="profile_button" class="menu_button">Профиль</div>
+            <div id="friend_button" class="menu_button">Друзья</div>
+            <div id="messages_button" class="menu_button">Сообщения</div>
+            <div id="news_button" class="menu_button">Новости</div>
+            <div id="setting_button" class="menu_button">Настройки</div>
+        </div>
+    </div>
+</body>
+</html>

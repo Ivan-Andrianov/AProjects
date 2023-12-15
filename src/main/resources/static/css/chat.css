@@ -218,6 +218,8 @@ header{
     border-bottom: 1px black solid;
     width: 285px;
     height: 54px;
+    user-select: none;
+    cursor: pointer;
 }
 
 .result_panel :last-child{

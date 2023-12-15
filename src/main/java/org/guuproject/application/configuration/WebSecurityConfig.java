@@ -23,7 +23,7 @@ public class WebSecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        return http.csrf(x->x.disable()).authorizeHttpRequests(authorize->authorize.requestMatchers("/","/profile/**","/profile","/chat/**","/friends/**","/messages/**","/news/**").
+        return http.csrf(x->x.disable()).authorizeHttpRequests(authorize->authorize.requestMatchers("/","/profile/**","/profile","/chat/**","/friends/**","/messages/**","/news/**","/settings/**").
                 authenticated().
                 anyRequest().permitAll()).formLogin(form->form.loginPage("/login")).build();
     }
@@ -32,12 +32,5 @@ public class WebSecurityConfig {
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder(8);
     }
-
-
-    /*@Bean
-    CorsConfigurationSource corsConfigurationSource(){
-        CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList(""))
-    }*/
 
 }
