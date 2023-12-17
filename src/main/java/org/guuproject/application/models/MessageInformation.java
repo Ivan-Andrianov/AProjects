@@ -1,5 +1,8 @@
 package org.guuproject.application.models;
 
+//Вспомогательный класс для передачи информации о сообщении между серверной частью
+//и пользовательским интерфейсом
+
 public class MessageInformation {
     private Long sender_id;
     private Long chat_id;

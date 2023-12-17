@@ -3,7 +3,6 @@ package org.guuproject.application.models;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,8 +29,7 @@ public class Chat {
 
     public Chat() {}
 
-    public Chat(Long id, List<Message> listOfMessages, List<User> members) {
-        this.id = id;
+    public Chat(List<Message> listOfMessages, List<User> members) {
         this.listOfMessages = listOfMessages;
         this.members = members;
     }
@@ -42,10 +40,6 @@ public class Chat {
 
     public List<Message> getListOfMessages() {
         return listOfMessages;
-    }
-
-    public void setListOfMessages(List<Message> listOfMessages) {
-        this.listOfMessages = listOfMessages;
     }
 
     public List<User> getMembers() {

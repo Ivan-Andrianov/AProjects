@@ -1,10 +1,7 @@
 package org.guuproject.application.models;
 
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import org.guuproject.application.models.composite_primary_keys.MessageId;
-import org.hibernate.annotations.Immutable;
 
 @Entity
 @Table(name = "messages")
@@ -23,9 +20,7 @@ public class Message {
     @OneToOne
     private User sender;
 
-    public Message() {
-
-    }
+    public Message() {}
 
     public Message(long chat_id, String text, User sender) {
         this.chat_id = chat_id;

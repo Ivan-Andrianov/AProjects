@@ -1,9 +1,7 @@
 package org.guuproject.application.models;
 
 import jakarta.persistence.*;
-
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -33,6 +31,17 @@ public class News {
     @CollectionTable(name = "news_like",joinColumns = @JoinColumn(name = "news_id"))
     @Column(name = "user_id")
     private Set<Long> likes = new HashSet<>();
+
+    public News(){}
+
+    public News(String topic, LocalDateTime date_of_creating, User writer, Image image, List<Comment> comments, Set<Long> likes) {
+        this.topic = topic;
+        this.date_of_creating = date_of_creating;
+        this.writer = writer;
+        this.image = image;
+        this.comments = comments;
+        this.likes = likes;
+    }
 
     public Long getId() {
         return id;

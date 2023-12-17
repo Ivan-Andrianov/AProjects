@@ -68,6 +68,17 @@ public class User implements UserDetails {
         return authorities;
     }
 
+    public User() {}
+
+    public User(Long id, String username, String name, String lastname, boolean active, Integer age, String password, Role role, LocalDateTime date_of_created, List<User> friends, Image avatar, String country, List<Chat> chats, List<Image> images, List<News> news) {
+        this.username = username;
+        this.name = name;
+        this.lastname = lastname;
+        this.password = password;
+        this.role = role;
+        this.date_of_created = date_of_created;
+    }
+
     @Override
     public String getPassword() {
         return password;
